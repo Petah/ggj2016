@@ -23,6 +23,8 @@
     <script>scripts\room_init.gml</script>
     <script>scripts\game_init.gml</script>
     <script>scripts\server_networking.gml</script>
+    <script>scripts\draw_wrap.gml</script>
+    <script>scripts\move_wrap_custom.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
