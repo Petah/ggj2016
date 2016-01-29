@@ -16,15 +16,25 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\player_move.gml</script>
-    <script>scripts\server_init.gml</script>
     <script>scripts\log.gml</script>
     <script>scripts\draw_console.gml</script>
     <script>scripts\log_init.gml</script>
     <script>scripts\room_init.gml</script>
     <script>scripts\game_init.gml</script>
-    <script>scripts\server_networking.gml</script>
     <script>scripts\draw_wrap.gml</script>
     <script>scripts\move_wrap_custom.gml</script>
+    <scripts name="network">
+      <script>scripts\server_init.gml</script>
+      <script>scripts\sync_frame.gml</script>
+      <script>scripts\broadcast.gml</script>
+      <script>scripts\send_command.gml</script>
+      <script>scripts\server_send_command.gml</script>
+      <script>scripts\process_command.gml</script>
+      <script>scripts\broadcast_command.gml</script>
+      <script>scripts\server_networking.gml</script>
+      <script>scripts\player_join.gml</script>
+      <script>scripts\player_init.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>

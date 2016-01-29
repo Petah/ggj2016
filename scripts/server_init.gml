@@ -1,23 +1,26 @@
-var CMD_PING = 0;
-
 var ip;
 var port = 6510;
 
+global.server = noone;
+global.player_id = noone;
+global.next_player_id = 1000;
+global.network_players = ds_map_create();
+
 if (global.host) {
     log('Starting server on ' + string(port));
-    server = network_create_server(network_socket_tcp, port, 32);
-    clients = ds_map_create();
+    global.server = network_create_server(network_socket_tcp, port, 32);
+    global.clients = ds_map_create();
     ip = '127.0.0.1';
+    global.server_buffer = buffer_create(256, buffer_grow, 1);
 } else {
     ip = '10.50.19.239';
 }
 
 log('Connecting to server ' + string(ip) + ':' + string(port));
-client = network_create_socket(network_socket_tcp);
-network_connect(client, ip, port);
+global.client = network_create_socket(network_socket_tcp);
+network_connect(global.client, ip, port);
 
-buff = buffer_create(256, buffer_grow, 1);
-buffer_seek(buff, buffer_seek_start, 0);
-buffer_write(buff, buffer_u8, CMD_PING);
-network_send_packet(client, buff, buffer_tell(buff));
+global.client_buffer = buffer_create(256, buffer_grow, 1);
+
+alarm[0] = 30;
 
