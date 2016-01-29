@@ -53,6 +53,8 @@
   <instances>
     <instance objName="obj_console" x="32" y="96" name="inst_49C9C2B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_server" x="64" y="64" name="inst_7C8659A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_controls" x="96" y="32" name="inst_BDFEA2B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_client" x="128" y="32" name="inst_F4DC85CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

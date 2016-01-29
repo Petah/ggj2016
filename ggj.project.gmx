@@ -9,6 +9,7 @@
     <sprite>sprites\spr_ship_1</sprite>
     <sprite>sprites\spr_ship_2</sprite>
     <sprite>sprites\spr_bullet</sprite>
+    <sprite>sprites\spr_ship_3</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
@@ -31,10 +32,10 @@
       <script>scripts\server_send_command.gml</script>
       <script>scripts\process_command.gml</script>
       <script>scripts\broadcast_command.gml</script>
+      <script>scripts\broadcast_buffer.gml</script>
       <script>scripts\server_networking.gml</script>
-      <script>scripts\player_join.gml</script>
-      <script>scripts\player_init.gml</script>
     </scripts>
+    <script>scripts\client_draw.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -44,6 +45,9 @@
     <object>objects\obj_console</object>
     <object>objects\obj_button_host</object>
     <object>objects\obj_button_join</object>
+    <object>objects\obj_controls</object>
+    <object>objects\obj_client</object>
+    <object>objects\obj_ship</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
