@@ -65,6 +65,8 @@
     <sprite>sprites\spr_button</sprite>
     <sprite>sprites\spr_title</sprite>
     <sprite>sprites\spr_logo</sprite>
+    <sprite>sprites\spr_explosion_2_green</sprite>
+    <sprite>sprites\spr_particle_green</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>

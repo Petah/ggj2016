@@ -28,6 +28,7 @@
             <string>alarm[0] = room_speed * 0.1;
 image_speed = 0;
 audio_play_sound(snd_explosion_1, 75, false);
+sprite_index = choose(spr_explosion_1_green,spr_explosion_2_green);
 
 </string>
           </argument>

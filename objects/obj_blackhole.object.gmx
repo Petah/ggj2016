@@ -76,7 +76,7 @@ with (obj_asteroid) {
 with (obj_mine_1) {
     var G = 0.005;
     var g_mag, g_dir, g_xco, g_yco;
-    g_mag = (G * 1000000) / (sqr(get_distance_torus(other.x, other.y, x, y, room_width, room_height)) /1.5 );
+    g_mag = (G * 1000000) / (sqr(get_distance_torus(other.x, other.y, x, y, room_width, room_height)) *1.75 );
     g_dir = point_direction_wrap(x, y, other.x, other.y);
     g_xco = cos(g_dir * pi / 180) * g_mag;
     g_yco = -sin(g_dir * pi / 180) * g_mag;
