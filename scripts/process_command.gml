@@ -54,7 +54,7 @@ with (argument1) {
                 mine.direction = direction + 180;
                 mine.image_angle = random(360);
                 
-                mine.ship_id = noone;
+                mine.ship_id = id;
                 mine.alarm[2] = room_speed / 4;
                 
                 audio_play_sound(snd_shoot_1, 50, false);
