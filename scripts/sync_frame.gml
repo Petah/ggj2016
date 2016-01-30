@@ -12,9 +12,6 @@ if (global.host) {
     buffer_write(global.server_buffer, buffer_s32, instance_number(obj_network_base));
     
     with (obj_network_base) {
-        if (!is_undefined(ship_hp)) {
-            log("HP " + object_get_name(self.id) + " " + string(ship_hp));
-        }
         buffer_write(global.server_buffer, buffer_s32, sprite_index);
         buffer_write(global.server_buffer, buffer_f32, x);
         buffer_write(global.server_buffer, buffer_f32, y);
@@ -28,7 +25,7 @@ if (global.host) {
         // Set camera follow
         var ship = ds_map_find_value(global.ships, socket);
         
-        buffer_seek(global.server_buffer, buffer_seek_sta0rt, 4);
+        buffer_seek(global.server_buffer, buffer_seek_start, 4);
         if (ship.dead) {
             buffer_write(global.server_buffer, buffer_f32, room_width / 2);
             buffer_write(global.server_buffer, buffer_f32, room_height / 2);
