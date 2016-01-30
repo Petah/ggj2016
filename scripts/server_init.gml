@@ -19,6 +19,10 @@ if (global.host) {
     global.server_buffer = buffer_create(256, buffer_grow, 1);
     global.ships = ds_map_create();
     
+    for (var i = 0; i < 4; i++) {
+        instance_create(random_range(0, room_width), random_range(0, room_height), obj_blackhole);
+    }
+    
     for (var i = 0; i < 40; i++) {
         asteroid_create();
     }

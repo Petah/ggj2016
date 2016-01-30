@@ -3,7 +3,6 @@ if (global.host) {
     // log("Sending draw frame, " + string(ds_map_size(global.ships)) + " ship(s)");
     
     buffer_seek(global.server_buffer, buffer_seek_start, 0);
-    
     buffer_write(global.server_buffer, buffer_s32, CMD_DRAW);
 
     // Camera placeholder

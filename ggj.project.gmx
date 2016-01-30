@@ -10,6 +10,8 @@
     <sound>sound\snd_thrust</sound>
     <sound>sound\msc_bg</sound>
     <sound>sound\snd_explosion_2</sound>
+    <sound>sound\snd_explosion_3</sound>
+    <sound>sound\snd_explosion_4</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ship_1</sprite>
@@ -90,7 +92,6 @@
     <script>scripts\player_hit.gml</script>
     <script>scripts\damage_ship.gml</script>
     <script>scripts\split_asteroid.gml</script>
-    <script>scripts\d.gml</script>
     <script>scripts\point_direction_wrap.gml</script>
     <script>scripts\get_distance_torus.gml</script>
   </scripts>
@@ -117,8 +118,7 @@
     <object>objects\obj_hud</object>
     <object>objects\obj_powerup</object>
     <object>objects\obj_powerup_rapid_fire</object>
-    <object>objects\obj_blackhole_test</object>
-    <object>objects\obj_blackhole_test2</object>
+    <object>objects\obj_blackhole</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
