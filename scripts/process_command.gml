@@ -48,7 +48,7 @@ with (argument1) {
             break;
         }
         case CMD_FIRE_2: {
-            if (loaded) {
+            if (loaded_mine) {
                 var mine = instance_create(x , y,obj_mine_1);
                 mine.speed = mine.ammo_speed;
                 mine.direction = direction + 180;
@@ -59,7 +59,7 @@ with (argument1) {
                 
                 audio_play_sound(snd_shoot_1, 50, false);
     
-                loaded = false;
+                loaded_mine = false;
                 alarm[1] = max(mine.ammo_reload_speed / ship_reload_modifier, 1);
             }
             break;
