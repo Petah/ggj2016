@@ -60,7 +60,7 @@ with (argument1) {
                 audio_play_sound(snd_shoot_1, 50, false);
     
                 loaded_mine = false;
-                alarm[1] = max(mine.ammo_reload_speed / ship_reload_modifier, 1);
+                alarm[2] = max(mine.ammo_reload_speed / ship_reload_modifier, 1);
             }
             break;
         }

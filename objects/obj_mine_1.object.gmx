@@ -26,10 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-ammo_damage = 10;
+ammo_damage = 15;
 ammo_speed = 5;
 ammo_reload_speed = room_speed;
-friction = 0.1;
+friction = 0.05;
 ammo_is_armed = false;
 </string>
           </argument>
