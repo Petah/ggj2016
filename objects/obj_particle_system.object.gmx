@@ -26,7 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>global.particle_system = part_system_create();
-part_system_depth(global.particle_system, -1200);
+part_system_depth(global.particle_system, 200);
+
+global.particle_system_explosion = part_system_create();
+part_system_depth(global.particle_system_explosion, -1200);
+
 global.burst_emitter = part_emitter_create(global.particle_system);
 
 global.thrust_particle = part_type_create();
