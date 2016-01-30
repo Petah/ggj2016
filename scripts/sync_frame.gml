@@ -93,4 +93,3 @@ for (var i = 0; i < ds_map_size(global.ships); i++) {
     
     socket = ds_map_find_next(global.ships, socket);
 }
-

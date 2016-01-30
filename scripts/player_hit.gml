@@ -4,6 +4,7 @@ if (ship_id != other.id) {
         if (ship_hp < 0) {
             dead = true;
             ship_score -= 50;
+            log("Remote score " + string(ship_score));
             if (ship_score < 0) {
                 ship_score = 0;
             }

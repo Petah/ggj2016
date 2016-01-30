@@ -85,7 +85,8 @@ move_wrap_custom();
             <kind>1</kind>
             <string>damage_ship(other, 3);
 split_asteroid();
-audio_play_sound(snd_explosion_2, 30, false);
+audio_stop_sound(snd_explosion_asteroid);
+audio_play_sound(snd_explosion_asteroid, 1, false);
 
 </string>
           </argument>

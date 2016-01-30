@@ -110,7 +110,7 @@ for (var i = 0; i &lt; ds_map_size(ship_scores); i++) {
     var score_array = ds_map_find_value(ship_scores, ship_id);
     // log("HUD " + string(ship_id) + " " + string(ds_list_find_value(score_array, 0)) + " " + string(ds_list_find_value(score_array, 1)) + " " + string(ds_list_find_value(score_array, 2)));
     draw_set_colour(ds_list_find_value(score_array, 2));
-    draw_text(view_wview[0] - 20, name_y, string(global.ship_id) + " " + string(ship_id) + " " + string(ds_list_find_value(score_array, 0)) + " " + string_sep(ds_list_find_value(score_array, 1), ",", 3));
+    draw_text(view_wview[0] - 20, name_y, string(ds_list_find_value(score_array, 1)) + " " + string_sep(ds_list_find_value(score_array, 0), ",", 3));
     name_y += 30;
     ship_id = ds_map_find_next(ship_scores, ship_id);
 }

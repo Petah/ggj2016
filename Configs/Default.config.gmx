@@ -308,7 +308,7 @@
     <option_use_new_audio>True</option_use_new_audio>
     <option_variableerrors>False</option_variableerrors>
     <option_version>100</option_version>
-    <option_version_build>123</option_version_build>
+    <option_version_build>124</option_version_build>
     <option_version_company></option_version_company>
     <option_version_copyright></option_version_copyright>
     <option_version_description></option_version_description>
@@ -459,18 +459,19 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="11">
+    <constants number="12">
+      <constant name="CMD_ACCELERATE">1</constant>
+      <constant name="CMD_BREAK">4</constant>
       <constant name="CMD_DRAW">9</constant>
+      <constant name="CMD_FIRE_1">5</constant>
+      <constant name="CMD_FIRE_2">11</constant>
+      <constant name="CMD_PART_CREATE">10</constant>
       <constant name="CMD_PLAYER_INIT">8</constant>
       <constant name="CMD_PLAYER_JOIN">7</constant>
+      <constant name="CMD_SHIP_NAME">12</constant>
       <constant name="CMD_SYNC_FRAME">6</constant>
-      <constant name="CMD_FIRE_1">5</constant>
-      <constant name="CMD_BREAK">4</constant>
-      <constant name="CMD_TURN_RIGHT">3</constant>
       <constant name="CMD_TURN_LEFT">2</constant>
-      <constant name="CMD_ACCELERATE">1</constant>
-      <constant name="CMD_PART_CREATE">10</constant>
-      <constant name="CMD_FIRE_2">11</constant>
+      <constant name="CMD_TURN_RIGHT">3</constant>
     </constants>
   </ConfigConstants>
 </Config>

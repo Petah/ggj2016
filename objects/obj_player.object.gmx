@@ -57,6 +57,9 @@ audio_sound_gain(thrust_sound, 0, 0);
 if (!dead) {
     view_xview[0] = x - (view_wview[0] / 2);
     view_yview[0] = y - (view_hview[0] / 2);
+} else {
+    view_xview[0] = -2000000;
+    view_yview[0] = -2000000;
 }
 
 audio_listener_position(view_xview[0], view_yview[0], 0);

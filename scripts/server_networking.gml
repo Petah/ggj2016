@@ -131,6 +131,7 @@ if (global.next_player_id == global.host_player_id) {
 ship.socket = ds_map_find_value(async_load, "socket");
 ship.ip = ds_map_find_value(async_load, "ip");
 ship.player_id = global.next_player_id;
+ship.ship_name = get_name();
 ds_map_add(global.ships, ship.socket, ship);
 
 log("Client connect " + string(ship) + " " + string(ship.player_id) + " " + string(ship.ip) + " " + string(ship.x) + "," + string(ship.y));

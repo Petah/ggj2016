@@ -44,25 +44,7 @@ loaded_mine = true;
 
 gun_angle = 45;
 
-
-ship_name = choose(
-    "Pork Chop",
-    "Spatula",
-    "Meat Ball",
-    "Luncheon",
-    "Sausage",
-    "Gravy",
-    "Sauce",
-    "Fork",
-    "Mint Peas",
-    "Bread",
-    "Chocolate Brownie",
-    "Raspberry",
-    "Pie",
-    "Egg Timer",
-    "Lemon",
-    "Cabbage",
-);
+ship_name = "New ship";
 
 </string>
           </argument>
@@ -184,8 +166,8 @@ dead = false;
             <kind>1</kind>
             <string>// @todo maybe reuse existing ds_list
 var score_array = ds_list_create();
-ds_list_add(score_array, ship_name);
 ds_list_add(score_array, ship_score);
+ds_list_add(score_array, ship_name);
 if (global.ship_id == id) {
     ds_list_add(score_array, make_color_rgb(53, 186, 243));
 } else {

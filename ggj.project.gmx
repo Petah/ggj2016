@@ -9,10 +9,12 @@
     <sound>sound\snd_explosion_1</sound>
     <sound>sound\snd_thrust</sound>
     <sound>sound\msc_bg</sound>
-    <sound>sound\snd_explosion_2</sound>
+    <sound>sound\snd_explosion_asteroid</sound>
     <sound>sound\snd_explosion_3</sound>
     <sound>sound\snd_explosion_4</sound>
     <sound>sound\snd_pickup_1</sound>
+    <sound>sound\snd_beep_1</sound>
+    <sound>sound\snd_beep_2</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ship_1</sprite>
@@ -67,6 +69,7 @@
     <sprite>sprites\spr_logo</sprite>
     <sprite>sprites\spr_explosion_2_green</sprite>
     <sprite>sprites\spr_particle_green</sprite>
+    <sprite>sprites\spr_count_down</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
@@ -96,12 +99,12 @@
     <script>scripts\player_init.gml</script>
     <script>scripts\particle_create_wrap.gml</script>
     <script>scripts\asteroid_create.gml</script>
-    <script>scripts\player_hit.gml</script>
     <script>scripts\damage_ship.gml</script>
     <script>scripts\split_asteroid.gml</script>
     <script>scripts\point_direction_wrap.gml</script>
     <script>scripts\get_distance_torus.gml</script>
     <script>scripts\string_sep.gml</script>
+    <script>scripts\get_name.gml</script>
     <script>scripts\particle_burst_wrap.gml</script>
   </scripts>
   <objects name="objects">
@@ -132,6 +135,7 @@
     <object>objects\obj_mine_1</object>
     <object>objects\obj_title</object>
     <object>objects\obj_logo</object>
+    <object>objects\obj_count_down</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
