@@ -11,6 +11,33 @@
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_ship_3</sprite>
     <sprite>sprites\spr_asteroid</sprite>
+    <sprite>sprites\spr_ship_4_blue</sprite>
+    <sprite>sprites\spr_base_1_green</sprite>
+    <sprite>sprites\spr_base_1_blue</sprite>
+    <sprite>sprites\spr_ship_6_red</sprite>
+    <sprite>sprites\spr_ship_6_orange</sprite>
+    <sprite>sprites\spr_ship_6_green</sprite>
+    <sprite>sprites\spr_ship_6_blue</sprite>
+    <sprite>sprites\spr_ship_5_red</sprite>
+    <sprite>sprites\spr_ship_5_orange</sprite>
+    <sprite>sprites\spr_ship_5_green</sprite>
+    <sprite>sprites\spr_ship_5_blue</sprite>
+    <sprite>sprites\spr_ship_4_red</sprite>
+    <sprite>sprites\spr_ship_4_orange</sprite>
+    <sprite>sprites\spr_ship_4_green</sprite>
+    <sprite>sprites\spr_base_1_yellow</sprite>
+    <sprite>sprites\spr_base_1_red</sprite>
+    <sprite>sprites\spr_laser_2_blue</sprite>
+    <sprite>sprites\spr_laser_2_green</sprite>
+    <sprite>sprites\spr_laser_2_red</sprite>
+    <sprite>sprites\spr_laser_1_red</sprite>
+    <sprite>sprites\spr_laser_1_green</sprite>
+    <sprite>sprites\spr_laser_1_blue</sprite>
+    <sprite>sprites\spr_ship_7_orange</sprite>
+    <sprite>sprites\spr_ship_7_green</sprite>
+    <sprite>sprites\spr_ship_7_blue</sprite>
+    <sprite>sprites\spr_ship_7_black</sprite>
+    <sprite>sprites\spr_meteor_large_brown</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
