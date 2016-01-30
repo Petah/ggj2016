@@ -29,7 +29,13 @@
 
 thrust_sound = audio_play_sound(snd_thrust, 0, true);
 audio_sound_gain(thrust_sound, 0, 0);
+log("before with");
+with (obj_hud) {
+log("in with");
+    ship = other.id;
+    log(string(ship));
 
+}
 </string>
           </argument>
         </arguments>
@@ -60,10 +66,6 @@ if (!dead) {
 }
 
 audio_listener_position(view_xview[0], view_yview[0], 0);
-
-with (obj_hud) {
-    health_level = other.ship_hp / other.ship_max_hp;
-}
 
 </string>
           </argument>
@@ -135,16 +137,7 @@ with (obj_hud) {
             <kind>1</kind>
             <string>event_inherited();
 
-with (obj_blackhole) {
-    var G = 0.005;
-    var g_mag, g_dir, g_xco, g_yco;
-    g_mag = (G * 1000000) / (sqr(point_distance(x, y, other.x, other.y)) / 2);
-    g_dir = point_direction(other.x, other.y, x, y);
-    g_xco = cos(g_dir * pi / 180) * g_mag;
-    g_yco = -sin(g_dir * pi / 180) * g_mag;
-    other.hspeed += g_xco;
-    other.vspeed += g_yco;
-}
+
 
 </string>
           </argument>

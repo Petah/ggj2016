@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>health_level = 1;
+            <string>log("hud create");
+health_level = 1;
+ship = noone;
 </string>
           </argument>
         </arguments>
@@ -48,40 +50,47 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var health_bar_width = 200;
-var health_bar_x = (view_wview[0] / 2) - health_bar_width - (sprite_width * 2) - 10;
-var health_bar_y = 20;
-
-draw_set_colour(c_white);
-draw_set_halign(fa_right);
-draw_text((view_wview[0] / 2) - 10, health_bar_y, "HEALTH");
-health_bar_y += 20;
-
-draw_sprite_stretched(spr_bar_grey, 0, health_bar_x + sprite_width, health_bar_y, health_bar_width, sprite_height);
-draw_sprite(spr_bar_grey, 1, health_bar_x, health_bar_y);
-draw_sprite(spr_bar_grey, 2, health_bar_x + health_bar_width + sprite_width, health_bar_y);
-
-var health_bar_width = max(200 * health_level, 0);
-var health_bar_x = (view_wview[0] / 2) - health_bar_width - (sprite_width * 2) - 10;
-draw_sprite_stretched(sprite_index, 0, health_bar_x + sprite_width, health_bar_y, health_bar_width, sprite_height);
-draw_sprite(sprite_index, 1, health_bar_x, health_bar_y);
-draw_sprite(sprite_index, 2, health_bar_x + health_bar_width + sprite_width, health_bar_y);
-
-var mana_bar_width = 200;
-var mana_bar_x = (view_wview[0] / 2) + 11;
-var mana_bar_y = 20;
-
-draw_set_halign(fa_left);
-draw_text(mana_bar_x, mana_bar_y, "MANA");
-mana_bar_y += 20;
-
-draw_sprite_stretched(spr_bar_blue, 0, mana_bar_x + sprite_width, mana_bar_y, mana_bar_width, sprite_height);
-draw_sprite(spr_bar_blue, 1, mana_bar_x, mana_bar_y);
-draw_sprite(spr_bar_blue, 2, mana_bar_x + mana_bar_width + sprite_width, mana_bar_y);
-
-// draw_line(view_wview[0] / 2, 0, view_wview[0] / 2, view_hview[0]);
-// draw_line(0, view_hview[0] / 2, view_wview[0], view_hview[0] / 2);
-
+            <string>log(string(ship));
+if (ship != noone) {
+log("test");
+    var health_level = ship.ship_hp / ship.ship_max_hp;
+    
+    var health_bar_width = 200;
+    var health_bar_x = (view_wview[0] / 2) - health_bar_width - (sprite_width * 2) - 10;
+    var health_bar_y = 20;
+    
+    draw_set_colour(c_white);
+    draw_set_halign(fa_right);
+    draw_text((view_wview[0] / 2) - 10, health_bar_y, "HEALTH");
+    health_bar_y += 20;
+    
+    draw_sprite_stretched(spr_bar_grey, 0, health_bar_x + sprite_width, health_bar_y, health_bar_width, sprite_height);
+    draw_sprite(spr_bar_grey, 1, health_bar_x, health_bar_y);
+    draw_sprite(spr_bar_grey, 2, health_bar_x + health_bar_width + sprite_width, health_bar_y);
+    
+    var health_bar_width = max(200 * health_level, 0);
+    var health_bar_x = (view_wview[0] / 2) - health_bar_width - (sprite_width * 2) - 10;
+    draw_sprite_stretched(sprite_index, 0, health_bar_x + sprite_width, health_bar_y, health_bar_width, sprite_height);
+    draw_sprite(sprite_index, 1, health_bar_x, health_bar_y);
+    draw_sprite(sprite_index, 2, health_bar_x + health_bar_width + sprite_width, health_bar_y);
+    
+    var mana_bar_width = 200;
+    var mana_bar_x = (view_wview[0] / 2) + 11;
+    var mana_bar_y = 20;
+    
+    draw_set_halign(fa_left);
+    draw_text(mana_bar_x, mana_bar_y, "MANA");
+    mana_bar_y += 20;
+    
+    draw_sprite_stretched(spr_bar_blue, 0, mana_bar_x + sprite_width, mana_bar_y, mana_bar_width, sprite_height);
+    draw_sprite(spr_bar_blue, 1, mana_bar_x, mana_bar_y);
+    draw_sprite(spr_bar_blue, 2, mana_bar_x + mana_bar_width + sprite_width, mana_bar_y);
+    
+    draw_set_halign(fa_center);
+    draw_text(view_wview[0] /2, 70, string(ship.ship_score));
+    // draw_line(view_wview[0] / 2, 0, view_wview[0] / 2, view_hview[0]);
+    // draw_line(0, view_hview[0] / 2, view_wview[0], view_hview[0] / 2);
+}
 </string>
           </argument>
         </arguments>

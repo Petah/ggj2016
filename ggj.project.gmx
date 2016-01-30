@@ -59,6 +59,8 @@
     <sprite>sprites\spr_pointer_grey</sprite>
     <sprite>sprites\spr_powerup_1</sprite>
     <sprite>sprites\spr_blackhole</sprite>
+    <sprite>sprites\spr_coin_1</sprite>
+    <sprite>sprites\sprite46</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
@@ -119,6 +121,7 @@
     <object>objects\obj_powerup</object>
     <object>objects\obj_powerup_rapid_fire</object>
     <object>objects\obj_blackhole</object>
+    <object>objects\obj_coin_1</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>

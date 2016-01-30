@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
+ship_score = 0;
 rotation = 0;
 
 ship_max_speed = (60 / room_speed) * 10;
@@ -139,6 +140,33 @@ dead = false;
             <kind>1</kind>
             <string>move_wrap(true, true, 0);
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_coin_1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ship_score += other.coin_value;
+// sweet sound effect
+with (other) {
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
