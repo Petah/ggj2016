@@ -12,6 +12,7 @@
     <sound>sound\snd_explosion_2</sound>
     <sound>sound\snd_explosion_3</sound>
     <sound>sound\snd_explosion_4</sound>
+    <sound>sound\snd_pickup_1</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ship_1</sprite>

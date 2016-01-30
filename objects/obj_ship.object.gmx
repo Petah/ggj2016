@@ -163,10 +163,14 @@ dead = false;
           <argument>
             <kind>1</kind>
             <string>ship_score += other.coin_value;
-// sweet sound effect
+
 with (other) {
     instance_destroy();
 }
+
+audio_play_sound_at(snd_pickup_1, x, y, 0, 400, 800, 1, false, 1);
+
+
 </string>
           </argument>
         </arguments>

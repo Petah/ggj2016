@@ -58,8 +58,8 @@ with (obj_ship) {
     g_dir = point_direction_wrap(x, y, other.x, other.y);
     g_xco = cos(g_dir * pi / 180) * g_mag;
     g_yco = -sin(g_dir * pi / 180) * g_mag;
-    hspeed += g_xco;
-    vspeed += g_yco;
+    hspeed += g_xco * 2;
+    vspeed += g_yco * 2;
 }
 
 with (obj_asteroid) {
