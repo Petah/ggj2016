@@ -22,7 +22,7 @@
     <sprite>sprites\spr_asteroid</sprite>
     <sprite>sprites\spr_shield_hit</sprite>
     <sprite>sprites\spr_ship_4_blue</sprite>
-    <sprite>sprites\spr_base_1_green</sprite>
+    <sprite>sprites\spr_mine_green</sprite>
     <sprite>sprites\spr_base_1_blue</sprite>
     <sprite>sprites\spr_ship_6_red</sprite>
     <sprite>sprites\spr_ship_6_orange</sprite>
@@ -123,6 +123,7 @@
     <object>objects\obj_powerup_rapid_fire</object>
     <object>objects\obj_blackhole</object>
     <object>objects\obj_coin_1</object>
+    <object>objects\obj_mine_1</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>

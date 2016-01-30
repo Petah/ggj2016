@@ -73,6 +73,40 @@ with (obj_asteroid) {
     vspeed += g_yco;
 }
 
+with (obj_mine_1) {
+    var G = 0.005;
+    var g_mag, g_dir, g_xco, g_yco;
+    g_mag = (G * 1000000) / (sqr(get_distance_torus(other.x, other.y, x, y, room_width, room_height)) /1.5 );
+    g_dir = point_direction_wrap(x, y, other.x, other.y);
+    g_xco = cos(g_dir * pi / 180) * g_mag;
+    g_yco = -sin(g_dir * pi / 180) * g_mag;
+    hspeed += g_xco * 2;
+    vspeed += g_yco * 2;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_mine_1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_play_sound_at(snd_explosion_4, x, y, 0, 400, 800, 1, false, 1);
+instance_destroy();
 </string>
           </argument>
         </arguments>

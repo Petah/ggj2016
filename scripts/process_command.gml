@@ -47,6 +47,23 @@ with (argument1) {
             }
             break;
         }
+        case CMD_FIRE_2: {
+            if (loaded) {
+                var mine = instance_create(x , y,obj_mine_1);
+                mine.speed = mine.ammo_speed;
+                mine.direction = direction + 180;
+                mine.image_angle = random(360);
+                
+                mine.ship_id = noone;
+                mine.alarm[2] = room_speed / 4;
+                
+                audio_play_sound(snd_shoot_1, 50, false);
+    
+                loaded = false;
+                alarm[1] = max(mine.ammo_reload_speed / ship_reload_modifier, 1);
+            }
+            break;
+        }
     }
     image_angle = rotation;
 }

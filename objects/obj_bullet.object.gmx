@@ -30,7 +30,7 @@ ammo_lifespan = 2 * room_speed;
 ammo_damage = 3;
 ammo_speed = 20;
 ammo_reload_speed = room_speed * 0.4;
-
+ammo_is_armed = true;
 </string>
           </argument>
         </arguments>
@@ -177,7 +177,7 @@ ammo_reload_speed = room_speed * 0.4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (ship_id != other.id) {
+            <string>if (ship_id != other.id &amp;&amp; ammo_is_armed) {
     damage_ship(other, ammo_damage);
     move_contact_solid(direction, speed);
     instance_create(x, y, obj_explosion);

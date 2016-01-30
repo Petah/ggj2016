@@ -31,7 +31,7 @@ ship_score = 0;
 rotation = 0;
 
 ship_max_speed = (60 / room_speed) * 10;
-ship_thrust_forward = (60 / room_speed) * 2.5;
+ship_thrust_forward = (60 / room_speed) * 0.7;
 ship_thrust_reverse = (60 / room_speed) * 0.5;
 ship_turn_speed = (60 / room_speed) * 5;
 
@@ -40,6 +40,7 @@ ship_reload_modifier = 1;
 dead = false;
 
 loaded = true;
+loaded_mine = true;
 
 gun_angle = 45;
 
