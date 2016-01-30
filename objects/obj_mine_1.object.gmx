@@ -59,6 +59,30 @@ ammo_is_armed = false;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_asteroid">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+particle_burst_wrap(x,y);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_ship">
       <action>
         <libid>1</libid>
@@ -77,10 +101,15 @@ ammo_is_armed = false;
           <argument>
             <kind>1</kind>
             <string>if (ammo_is_armed) {
-    ship_id.ship_score += 25;
-    if (damage_ship(other, ammo_damage)) {
-        ship_id.ship_score += 75;
+    if (ship_id == other.id) {
+        ship_id.ship_score += 25;
+        if (damage_ship(other, ammo_damage)) {
+            ship_id.ship_score += 75;
+        }
+    } else {
+        damage_ship(other, ammo_damage);
     }
+    particle_burst_wrap(x,y);
     move_contact_solid(direction, speed);
     instance_create(x, y, obj_explosion);
     instance_destroy();
