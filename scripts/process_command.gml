@@ -11,7 +11,7 @@ with (argument1) {
             {
                 speed = ship_max_speed;
             }
-            particle_create_wrap(x, y, global.thrust_particle);
+            particle_create_wrap(x - lengthdir_x(20, rotation), y - lengthdir_y(20, rotation), global.thrust_particle);
             break;
         }
         case CMD_BREAK: {
@@ -30,11 +30,27 @@ with (argument1) {
             break;
         }
         case CMD_FIRE_1: {
-            var bullet = instance_create(x, y, obj_bullet_1);
-            bullet.speed = speed + bullet.ammo_speed;
-            bullet.direction = rotation;
-            bullet.alarm[0] = bullet.ammo_lifespan;
-            bullet.ship_id = id;
+            if (loaded) {
+                
+            
+                var bullet = instance_create(x + lengthdir_x(25, rotation - 45), y + lengthdir_y(25, rotation - 45), obj_bullet_1);
+                bullet.speed = speed + bullet.ammo_speed;
+                bullet.direction = rotation;
+                bullet.alarm[0] = bullet.ammo_lifespan;
+                bullet.ship_id = id;
+                
+                var bullet = instance_create(x + lengthdir_x(25, rotation + 45), y + lengthdir_y(25, rotation + 45), obj_bullet_1);
+                bullet.speed = speed + bullet.ammo_speed;
+                bullet.direction = rotation;
+                bullet.alarm[0] = bullet.ammo_lifespan;
+                bullet.ship_id = id;            
+                
+                audio_play_sound_at(snd_shoot_1, x, y, 0, 100, 300, 1, false, 1);
+    
+                loaded = false;
+                alarm[1] = bullet.ammo_reload_speed;
+            }
+            
             break;
         }
     }

@@ -31,12 +31,10 @@ part_system_depth(global.particle_system, 200);
 
 global.thrust_particle = part_type_create();
 part_type_alpha2(global.thrust_particle, 1, 0);
-// part_type_blend(global.thrust_particle, 1);
 part_type_colour_hsv(global.thrust_particle, 0, 0, 0, 0, 128, 128);
-// part_type_speed(global.thrust_particle, 15, 35, -0.5,-1);
-part_type_life(global.thrust_particle, room_speed * 3, room_speed * 3);
+part_type_life(global.thrust_particle, room_speed * 1, room_speed * 1);
 part_type_shape(global.thrust_particle, pt_shape_disk);
-part_type_size(global.thrust_particle, 0.1, 0.1, 0, 0);
+part_type_size(global.thrust_particle, 0.15, 0.15, 0.0001, 0);
 
 </string>
           </argument>

@@ -67,7 +67,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_rectangle_colour(0, 0, room_width, room_height, c_white, c_white, c_white, c_white, true);
+            <string>draw_set_alpha(0.2);
+draw_rectangle_colour(0, 0, room_width, room_height, c_white, c_white, c_white, c_white, true);
+draw_set_alpha(1);
 
 </string>
           </argument>

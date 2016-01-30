@@ -27,3 +27,8 @@ network_connect(global.client, ip, port);
 
 global.client_buffer = buffer_create(256, buffer_grow, 1);
 
+for (var i = 0; i < 30; i++) {
+    instance_create(random_range(0, room_width), random_range(0, room_height), obj_asteroid);
+}
+alarm[0] = room_speed * 10;
+

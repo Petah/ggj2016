@@ -85,10 +85,10 @@ process_command(command, ship);
 
 
 #define server_player_connect
-var spawn_x = random_range(0, 500);
-var spawn_y = random_range(0, 500);
-// var spawn_x = random_range(0, room_width);
-// var spawn_y = random_range(0, room_height);
+//var spawn_x = random_range(0, 500);
+//var spawn_y = random_range(0, 500);
+var spawn_x = random_range(0, room_width);
+var spawn_y = random_range(0, room_height);
 var ship;
 
 if (global.next_player_id == global.host_player_id) {

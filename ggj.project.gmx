@@ -4,7 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_shoot_1</sound>
+    <sound>sound\snd_explosion_1</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ship_1</sprite>
     <sprite>sprites\spr_ship_2</sprite>
@@ -44,9 +47,14 @@
     <sprite>sprites\spr_meteor_small_brown</sprite>
     <sprite>sprites\spr_meteor_large_grey</sprite>
     <sprite>sprites\spr_meteor_small_grey</sprite>
+    <sprite>sprites\spr_laster_3_green</sprite>
+    <sprite>sprites\spr_explosion_1_green</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
+    <background>background\bg_space_2</background>
+    <background>background\bg_space_3</background>
+    <background>background\bg_space_4</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -70,22 +78,26 @@
     <script>scripts\player_init.gml</script>
     <script>scripts\particle_create_wrap.gml</script>
   </scripts>
+  <fonts name="fonts"/>
   <objects name="objects">
+    <objects name="controls">
+      <object>objects\obj_console</object>
+      <object>objects\obj_controls</object>
+      <object>objects\obj_server</object>
+      <object>objects\obj_client</object>
+      <object>objects\obj_network_base</object>
+      <object>objects\obj_particle_system</object>
+      <object>objects\obj_button_host</object>
+      <object>objects\obj_button_join</object>
+    </objects>
     <object>objects\obj_ship</object>
     <object>objects\obj_player</object>
     <object>objects\obj_network_player</object>
-    <object>objects\obj_server</object>
     <object>objects\obj_bullet</object>
-    <object>objects\obj_console</object>
-    <object>objects\obj_button_host</object>
-    <object>objects\obj_button_join</object>
-    <object>objects\obj_controls</object>
-    <object>objects\obj_client</object>
-    <object>objects\obj_particle_system</object>
     <object>objects\obj_bullet_1</object>
-    <object>objects\obj_network_base</object>
     <object>objects\obj_collidable</object>
     <object>objects\obj_asteroid</object>
+    <object>objects\obj_explosion</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>

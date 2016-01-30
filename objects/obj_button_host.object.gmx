@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text_colour(x, y, "Press [H] to Host Game", c_black, c_black, c_black, c_black, 1);
+            <string>draw_text_colour(x, y, "Press [H] to Host Game", c_white, c_white, c_white, c_white, 1);
 
 </string>
           </argument>

@@ -3,7 +3,7 @@
   <spriteName>spr_ship_4_green</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-50</depth>
   <persistent>0</persistent>
   <parentName>obj_ship</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -31,6 +31,8 @@ if (!dead) {
     view_xview[0] = x - (view_wview[0] / 2);
     view_yview[0] = y - (view_hview[0] / 2);
 }
+
+audio_listener_position(view_xview[0], view_yview[0], 0);
 
 </string>
           </argument>
