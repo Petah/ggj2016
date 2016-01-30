@@ -53,6 +53,7 @@
   <instances>
     <instance objName="obj_button_host" x="192" y="224" name="inst_D5C91F1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_join" x="192" y="320" name="inst_870915EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_controls" x="96" y="96" name="inst_807B2667" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

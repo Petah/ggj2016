@@ -61,9 +61,13 @@ switch (command) {
             data_array[2] = buffer_read(buffer, buffer_f32); // y
             data_array[3] = buffer_read(buffer, buffer_f32); // image_angle
             data_array[4] = buffer_read(buffer, buffer_s32); // image_index
-            log("Store sprite " + string(data_array[0]) + " " + string(data_array[1]) + "," + string(data_array[2]) + " " + string(data_array[3]));
+            // log("Store sprite " + string(data_array[0]) + " " + string(data_array[1]) + "," + string(data_array[2]) + " " + string(data_array[3]));
             ds_list_add(global.sprites, data_array);
         }
+        
+        var ship_hp = buffer_read(buffer, buffer_f32);
+        var ship_max_hp = buffer_read(buffer, buffer_f32);
+        log("HP " + string(ship_hp) + "/" + string(ship_max_hp));
         
         // Remove old sprites
         /*

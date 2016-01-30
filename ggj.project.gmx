@@ -58,7 +58,7 @@
     <sprite>sprites\spr_pointer_red</sprite>
     <sprite>sprites\spr_pointer_grey</sprite>
     <sprite>sprites\spr_powerup_1</sprite>
-    <sprite>sprites\sprite41</sprite>
+    <sprite>sprites\spr_blackhole</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
