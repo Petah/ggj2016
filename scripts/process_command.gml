@@ -34,6 +34,7 @@ with (argument1) {
             bullet.speed = speed + bullet.ammo_speed;
             bullet.direction = rotation;
             bullet.alarm[0] = bullet.ammo_lifespan;
+            bullet.ship_id = id;
             break;
         }
     }

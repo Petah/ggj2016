@@ -10,6 +10,7 @@
     <sprite>sprites\spr_ship_2</sprite>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_ship_3</sprite>
+    <sprite>sprites\spr_asteroid</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
@@ -33,7 +34,6 @@
       <script>scripts\broadcast_buffer.gml</script>
       <script>scripts\server_networking.gml</script>
     </scripts>
-    <script>scripts\client_draw.gml</script>
     <script>scripts\player_init.gml</script>
     <script>scripts\particle_create_wrap.gml</script>
   </scripts>
@@ -50,6 +50,9 @@
     <object>objects\obj_client</object>
     <object>objects\obj_particle_system</object>
     <object>objects\obj_bullet_1</object>
+    <object>objects\obj_network_base</object>
+    <object>objects\obj_collidable</object>
+    <object>objects\obj_asteroid</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>

@@ -53,41 +53,28 @@ if (keyboard_check_pressed(vk_space)) {
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>client_draw</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
+            <kind>1</kind>
+            <string>var length = ds_list_size(global.sprites);
+// log("Sprites " + string(length));
+for (var i = 0; i &lt; length; i++) {
+    var data_array = ds_list_find_value(global.sprites, i);
+    // log("Draw sprite " + string(data_array[0]) + " " + string(data_array[1]) + "," + string(data_array[2]) + " " + string(data_array[3]));
+    draw_wrap_sprite(data_array[0], 0, data_array[1], data_array[2], 1, 1, data_array[3], c_white, 1);    
+}
+</string>
           </argument>
         </arguments>
       </action>

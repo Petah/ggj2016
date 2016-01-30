@@ -1,6 +1,6 @@
 // argument0: command
 
-log("Send command " + string(argument0));
+// log("Send command " + string(argument0));
 
 buffer_seek(global.client_buffer, buffer_seek_start, 0);
 buffer_write(global.client_buffer, buffer_s32, argument0);

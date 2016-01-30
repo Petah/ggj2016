@@ -82,30 +82,7 @@ var command = buffer_read(buffer, buffer_s32);
 var ship = ds_map_find_value(global.ships, socket);
 // log("Server command " + string(command) + " " + string(ship));
 process_command(command, ship);
-// broadcast_command(command, player_id);
 
-/*
-// log("Event data command " + string(command));
-
-switch (command) {
-    case CMD_ACCELERATE: {
-        instance.speed += 1;
-        break;
-    }
-    case CMD_BREAK: {
-        instance.speed -= 1;
-        break;
-    }
-    case CMD_TURN_RIGHT: {
-        instance.direction -= 10;
-        break;
-    }
-    case CMD_TURN_LEFT: {
-        instance.direction += 10;
-        break;
-    }
-}
-*/
 
 #define server_player_connect
 var spawn_x = random_range(0, 500);
