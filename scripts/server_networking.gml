@@ -37,15 +37,22 @@ if (global.server == event_id) {
 
 #define client_data
 var buffer = ds_map_find_value(async_load, "buffer");
-var command = buffer_read(buffer, buffer_s32);
 var socket = ds_map_find_value(async_load, "id");
+var command = buffer_read(buffer, buffer_s32);
 
 switch (command) {
     case CMD_DRAW: {
         // @todo ds_list_destory
         ds_list_clear(global.sprites);
+        
+        var view_x = buffer_read(buffer, buffer_f32);
+        var view_y = buffer_read(buffer, buffer_f32);
+        
+        view_xview[0] = view_x - (view_wview[0] / 2);
+        view_yview[0] = view_y - (view_hview[0] / 2);
+        
         var sprite_count = buffer_read(buffer, buffer_s32);
-        // log("Draw frame " + string(sprite_count) + " sprites");
+        // log("Draw frame " + string(sprite_count) + " sprites " + string(view_x) + "," + string(view_y));
         var i;
         for (i = 0; i < sprite_count; i++) {
             var data_array = ds_list_create();
@@ -53,12 +60,10 @@ switch (command) {
             data_array[1] = buffer_read(buffer, buffer_f32); // x
             data_array[2] = buffer_read(buffer, buffer_f32); // y
             data_array[3] = buffer_read(buffer, buffer_f32); // image_angle
-            // log("Store sprite " + string(data_array[0]) + " " + string(data_array[1]) + "," + string(data_array[2]) + " " + string(data_array[3]));
+            data_array[4] = buffer_read(buffer, buffer_s32); // image_index
+            log("Store sprite " + string(data_array[0]) + " " + string(data_array[1]) + "," + string(data_array[2]) + " " + string(data_array[3]));
             ds_list_add(global.sprites, data_array);
         }
-        
-        view_xview[0] = buffer_read(buffer, buffer_f32) - (view_wview[0] / 2);
-        view_yview[0] = buffer_read(buffer, buffer_f32) - (view_hview[0] / 2);
         
         // Remove old sprites
         /*

@@ -34,6 +34,7 @@ with (argument1) {
                 var bullet = instance_create(x + lengthdir_x(25, rotation - gun_angle), y + lengthdir_y(25, rotation - gun_angle), obj_bullet_1);
                 bullet.speed = speed + bullet.ammo_speed;
                 bullet.direction = rotation;
+                bullet.image_angle = rotation;
                 bullet.alarm[0] = bullet.ammo_lifespan;
                 bullet.ship_id = id;
                 
@@ -44,9 +45,9 @@ with (argument1) {
                 loaded = false;
                 alarm[1] = bullet.ammo_reload_speed;
             }
-            
             break;
         }
     }
+    image_angle = rotation;
 }
 
