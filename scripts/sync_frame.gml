@@ -11,6 +11,8 @@ if (global.host) {
         if (global.host_player_id != ship.player_id) {
             buffer_seek(global.server_buffer, buffer_seek_start, 0);
             buffer_write(global.server_buffer, buffer_s32, CMD_DRAW);
+            
+            write_score_buffer();
         
             // Camera 
             if (ship.dead) {
@@ -28,33 +30,13 @@ if (global.host) {
                 
                 var count = 0;
                 
-                with (obj_bullet) {
-                    if (abs(get_distance_torus(ship.x, ship.y, x, y, room_width, room_height)) < view_hview[0]) {
-                        write_sprite_buffer();
-                        count += 1;
-                    }
-                }
-                
-                with (obj_asteroid) {
-                    if (abs(get_distance_torus(ship.x, ship.y, x, y, room_width, room_height)) < view_hview[0]) {
-                        write_sprite_buffer();
-                        count += 1;
-                    }
-                }
-                
-                with (obj_ship) {
-                    if (abs(get_distance_torus(ship.x, ship.y, x, y, room_width, room_height)) < view_hview[0]) {
-                        write_sprite_buffer();
-                        count += 1;
-                    }
-                }
-                
-                with (obj_explosion) {
-                    if (abs(get_distance_torus(ship.x, ship.y, x, y, room_width, room_height)) < view_hview[0]) {
-                        write_sprite_buffer();
-                        count += 1;
-                    }
-                }
+                with (obj_bullet) { count += write_sprite_buffer(ship); }
+                with (obj_asteroid) { count += write_sprite_buffer(ship); }
+                with (obj_coin_1) { count += write_sprite_buffer(ship); }
+                with (obj_powerup) { count += write_sprite_buffer(ship); }
+                with (obj_ship) { count += write_sprite_buffer(ship); }
+                with (obj_explosion) { count += write_sprite_buffer(ship); }
+                with (obj_blackhole) { count += write_sprite_buffer(ship); }
                 
                 var end_position = buffer_tell(global.server_buffer);
                 buffer_seek(global.server_buffer, buffer_seek_start, count_position);
@@ -79,8 +61,26 @@ if (global.host) {
 
 
 #define write_sprite_buffer
-buffer_write(global.server_buffer, buffer_s32, sprite_index);
-buffer_write(global.server_buffer, buffer_f32, x);
-buffer_write(global.server_buffer, buffer_f32, y);
-buffer_write(global.server_buffer, buffer_f32, image_angle);
-buffer_write(global.server_buffer, buffer_s32, image_index);
+if (abs(get_distance_torus(argument0.x, argument0.y, x, y, room_width, room_height)) < view_hview[0]) {
+    buffer_write(global.server_buffer, buffer_s32, sprite_index);
+    buffer_write(global.server_buffer, buffer_f32, x);
+    buffer_write(global.server_buffer, buffer_f32, y);
+    buffer_write(global.server_buffer, buffer_f32, image_angle);
+    buffer_write(global.server_buffer, buffer_s32, image_index);
+    return 1;
+}
+return 0;
+
+
+#define write_score_buffer
+buffer_write(global.server_buffer, buffer_u8, ds_map_size(global.ships));
+    
+var socket = ds_map_find_first(global.ships);
+for (var i = 0; i < ds_map_size(global.ships); i++) {
+    var ship = ds_map_find_value(global.ships, socket);
+    buffer_write(global.server_buffer, buffer_u16, ship.ship_score);
+    buffer_write(global.server_buffer, buffer_string, ship.ship_name);
+    
+    socket = ds_map_find_next(global.ships, socket);
+}
+

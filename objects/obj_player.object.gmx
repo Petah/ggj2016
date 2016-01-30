@@ -29,13 +29,7 @@
 
 thrust_sound = audio_play_sound(snd_thrust, 0, true);
 audio_sound_gain(thrust_sound, 0, 0);
-log("before with");
-with (obj_hud) {
-log("in with");
-    ship = other.id;
-    log(string(ship));
 
-}
 </string>
           </argument>
         </arguments>
@@ -66,6 +60,10 @@ if (!dead) {
 }
 
 audio_listener_position(view_xview[0], view_yview[0], 0);
+
+obj_hud.ship_id = id;
+obj_hud.ship_hp = ship_hp;
+obj_hud.ship_max_hp = ship_max_hp;
 
 </string>
           </argument>
@@ -167,8 +165,11 @@ audio_listener_position(view_xview[0], view_yview[0], 0);
             <string>event_inherited();
 
 with (obj_asteroid) {
-    var angle = point_direction_wrap(other.x, other.y, x, y);
-    draw_sprite_ext(spr_pointer_grey, 0, other.x + lengthdir_x(100, angle), other.y + lengthdir_y(100, angle), 1, 1, angle, c_white, 1);
+    var distance = get_distance_torus(other.x, other.y, x, y, room_width, room_height);
+    if (distance &lt; 2000) {
+        var angle = point_direction_wrap(other.x, other.y, x, y);
+        draw_sprite_ext(spr_pointer_grey, 0, other.x + lengthdir_x(100, angle), other.y + lengthdir_y(100, angle), 1, 1, angle, c_white, 1 - (distance / 2000));
+    }
 }
 
 with (obj_network_player) {

@@ -31,7 +31,7 @@ ship_score = 0;
 rotation = 0;
 
 ship_max_speed = (60 / room_speed) * 10;
-ship_thrust_forward = (60 / room_speed) * 0.7;
+ship_thrust_forward = (60 / room_speed) * 0.6;
 ship_thrust_reverse = (60 / room_speed) * 0.5;
 ship_turn_speed = (60 / room_speed) * 5;
 
@@ -43,6 +43,26 @@ loaded = true;
 loaded_mine = true;
 
 gun_angle = 45;
+
+
+ship_name = choose(
+    "Pork Chop",
+    "Spatula",
+    "Meat Ball",
+    "Luncheon",
+    "Sausage",
+    "Gravy",
+    "Sauce",
+    "Fork",
+    "Mint Peas",
+    "Bread",
+    "Chocolate Brownie",
+    "Raspberry",
+    "Pie",
+    "Egg Timer",
+    "Lemon",
+    "Cabbage",
+);
 
 </string>
           </argument>
@@ -122,6 +142,29 @@ dead = false;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//ds_map_replace(obj_hud.ship_scores, player_id,);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -163,15 +206,16 @@ dead = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ship_score += other.coin_value;
-
-with (other) {
-    instance_destroy();
+            <string>if (other.can_pickup) {
+    ship_score += other.coin_value;
+    
+    with (other) {
+        instance_destroy();
+    }
+    
+    audio_play_sound_at(snd_pickup_1, x, y, 0, 400, 800, 1, false, 1);
 }
-
-audio_play_sound_at(snd_pickup_1, x, y, 0, 400, 800, 1, false, 1);
-
-
+    
 </string>
           </argument>
         </arguments>

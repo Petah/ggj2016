@@ -6,6 +6,7 @@ with (argument0) {
         y = -1000000;
         speed = 0;
         alarm[0] = room_speed * 5;
+        return true;
     }
 }
-
+return false;

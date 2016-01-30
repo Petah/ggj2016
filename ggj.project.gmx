@@ -61,7 +61,10 @@
     <sprite>sprites\spr_powerup_1</sprite>
     <sprite>sprites\spr_blackhole</sprite>
     <sprite>sprites\spr_coin_1</sprite>
-    <sprite>sprites\sprite46</sprite>
+    <sprite>sprites\spr_coin_big</sprite>
+    <sprite>sprites\spr_button</sprite>
+    <sprite>sprites\spr_title</sprite>
+    <sprite>sprites\spr_logo</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
@@ -97,6 +100,7 @@
     <script>scripts\split_asteroid.gml</script>
     <script>scripts\point_direction_wrap.gml</script>
     <script>scripts\get_distance_torus.gml</script>
+    <script>scripts\string_sep.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="controls">
@@ -124,6 +128,8 @@
     <object>objects\obj_blackhole</object>
     <object>objects\obj_coin_1</object>
     <object>objects\obj_mine_1</object>
+    <object>objects\obj_title</object>
+    <object>objects\obj_logo</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>

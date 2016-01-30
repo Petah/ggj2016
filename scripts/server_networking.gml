@@ -45,6 +45,13 @@ switch (command) {
         // @todo ds_list_destory
         ds_list_clear(global.sprites);
         
+        var ship_count = buffer_read(buffer, buffer_u8);
+        for (i = 0; i < ship_count; i++) {
+            var ship_score = buffer_read(buffer, buffer_u16);
+            var ship_name = buffer_read(buffer, buffer_string);
+            log(ship_name + " " + string(ship_score));
+        }
+        
         var view_x = buffer_read(buffer, buffer_f32);
         var view_y = buffer_read(buffer, buffer_f32);
         
@@ -65,9 +72,9 @@ switch (command) {
             ds_list_add(global.sprites, data_array);
         }
         
-        var ship_hp = buffer_read(buffer, buffer_f32);
-        var ship_max_hp = buffer_read(buffer, buffer_f32);
-        log("HP " + string(ship_hp) + "/" + string(ship_max_hp));
+        obj_hud.ship_hp = buffer_read(buffer, buffer_f32);
+        obj_hud.ship_max_hp = buffer_read(buffer, buffer_f32);
+        log("HP " + string(obj_hud.ship_hp) + "/" + string(obj_hud.ship_max_hp));
         
         // Remove old sprites
         /*

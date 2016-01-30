@@ -148,11 +148,13 @@ ammo_is_armed = true;
         ship_hp -= other.ammo_damage;
         if (ship_hp &lt; 0) {
             split_asteroid();
+            other.ship_id.ship_score += 9;
         }
     }
     move_contact_solid(direction, speed);
     instance_create(x, y, obj_explosion);
     instance_destroy();
+    ship_id.ship_score += 1;
 }
 
 </string>
@@ -178,7 +180,10 @@ ammo_is_armed = true;
           <argument>
             <kind>1</kind>
             <string>if (ship_id != other.id &amp;&amp; ammo_is_armed) {
-    damage_ship(other, ammo_damage);
+    ship_id.ship_score += 25;
+    if (damage_ship(other, ammo_damage)) {
+        ship_id.ship_score += 75;
+    }
     move_contact_solid(direction, speed);
     instance_create(x, y, obj_explosion);
     instance_destroy();

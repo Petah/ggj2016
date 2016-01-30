@@ -5,10 +5,13 @@ if (asteroid_split) {
         asteroid.ship_hp /= 2;
         asteroid.asteroid_split = false;
     }
-    if (random(5) < 1) {
-        instance_create(x, y, obj_powerup_rapid_fire);
+
+    if (object_is_ancestor(other.object_index, obj_bullet)) { 
+        if (random(5) < 1) {
+            instance_create(x, y, obj_powerup_rapid_fire);
+        }
     }
-} else {
+} else if (object_is_ancestor(other.object_index, obj_bullet)) { 
     for (var i = 0; i < random_range(1,6); i++) {
         var coin = instance_create(x, y, obj_coin_1);
     }

@@ -3,6 +3,10 @@ if (ship_id != other.id) {
         ship_hp -= other.ammo_damage;
         if (ship_hp < 0) {
             dead = true;
+            ship_score -= 50;
+            if (ship_score < 0) {
+                ship_score = 0;
+            }
             x = -1000000;
             y = -1000000;
             speed = 0;
