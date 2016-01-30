@@ -1,23 +1,21 @@
 if (keyboard_check(vk_up)) {
-    motion_add(rotation, 1);
+    send_command(CMD_ACCELERATE);
 }
 
 if (keyboard_check(vk_down)) {
-    speed -= 1;
-    if (speed < 0) {
-        speed = 0;
-    }
+    send_command(CMD_BREAK);
 }
 
 if (keyboard_check(vk_left)) {
-    rotation += 10;
+    send_command(CMD_TURN_LEFT);
 }
 
 if (keyboard_check(vk_right)) {
-    rotation -= 10;
+    send_command(CMD_TURN_RIGHT);
 }
 
 if (keyboard_check_pressed(vk_space)) {
+    send_command(CMD_FIRE_1);
 }
 
 /*

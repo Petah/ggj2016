@@ -8,6 +8,48 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (keyboard_check(vk_up)) {
+    send_command(CMD_ACCELERATE);
+}
+
+if (keyboard_check(vk_down)) {
+    send_command(CMD_BREAK);
+}
+
+if (keyboard_check(vk_left)) {
+    send_command(CMD_TURN_LEFT);
+}
+
+if (keyboard_check(vk_right)) {
+    send_command(CMD_TURN_RIGHT);
+}
+
+if (keyboard_check_pressed(vk_space)) {
+    send_command(CMD_FIRE_1);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
