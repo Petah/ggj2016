@@ -116,6 +116,45 @@ with (obj_hud) {
         </arguments>
       </action>
     </event>
+    
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+
+with (obj_blackhole_test2){
+var G = 0.005
+var g_mag, g_dir, g_xco, g_yco;
+log(string(sqr((point_distance(x,y,other.x,other.y)))));
+g_mag = (G*1000000)/(sqr(point_distance(x,y,other.x,other.y))/2)point_dis
+g_dir = point_direction(other.x,other.y,x,y)
+g_xco = cos(g_dir*pi/180)*g_mag
+g_yco = -sin(g_dir*pi/180)*g_mag
+other.hspeed += g_xco
+other.vspeed += g_yco
+log("xco = "+string(g_xco));
+log("yco = "+string(g_yco));
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -152,6 +191,7 @@ with (obj_network_player) {
         </arguments>
       </action>
     </event>
+    
     <event eventtype="9" enumb="38">
       <action>
         <libid>1</libid>
