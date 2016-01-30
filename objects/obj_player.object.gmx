@@ -30,6 +30,16 @@
 thrust_sound = audio_play_sound(snd_thrust, 0, true);
 audio_sound_gain(thrust_sound, 0, 0);
 
+switch (choose(0, 1)) {
+    case 0: {
+        break;
+    }
+    case 1: {
+        break;
+    }
+}
+
+// sprite_index = choose(spr_ship_1, spr_ship_2, spr_ship_3);
 </string>
           </argument>
         </arguments>
