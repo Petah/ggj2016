@@ -182,7 +182,18 @@ dead = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//ds_map_replace(obj_hud.ship_scores, player_id,);
+            <string>// @todo maybe reuse existing ds_list
+var score_array = ds_list_create();
+ds_list_add(score_array, ship_name);
+ds_list_add(score_array, ship_score);
+if (global.ship_id == id) {
+    ds_list_add(score_array, make_color_rgb(53, 186, 243));
+} else {
+    ds_list_add(score_array, c_white)
+}
+
+ds_map_replace(obj_hud.ship_scores, id, score_array);
+
 </string>
           </argument>
         </arguments>

@@ -51,7 +51,7 @@ with (argument1) {
             if (loaded_mine) {
                 var mine = instance_create(x , y,obj_mine_1);
                 mine.speed = mine.ammo_speed;
-                mine.direction = direction + 180;
+                mine.direction = rotation + 180;
                 mine.image_angle = random(360);
                 
                 mine.ship_id = id;

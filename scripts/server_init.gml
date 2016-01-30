@@ -4,8 +4,7 @@ var port = 6510;
 audio_falloff_set_model(audio_falloff_inverse_distance_clamped);
 
 global.server = noone;
-global.player_id = noone;
-global.player = noone;
+global.ship_id = noone;
 global.host_player_id = 1000; 
 global.next_player_id = 1000; 
 global.network_players = ds_map_create();

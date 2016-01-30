@@ -3,7 +3,7 @@
   <spriteName>spr_explosion_1_green</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-100</depth>
+  <depth>-1100</depth>
   <persistent>0</persistent>
   <parentName>obj_network_base</parentName>
   <maskName>&lt;undefined&gt;</maskName>

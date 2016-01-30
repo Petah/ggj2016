@@ -118,7 +118,7 @@ with (obj_bullet) {
             <kind>1</kind>
             <string>with (other) {
     audio_play_sound_at(snd_explosion_4, x, y, 0, 400, 800, 1, false, 1);
-    instance_destroy();
+instance_destroy();
 }
 </string>
           </argument>
@@ -174,7 +174,8 @@ audio_play_sound_at(snd_explosion_4, x, y, 0, 400, 800, 1, false, 1);
     instance_destroy();
 }
 audio_play_sound_at(snd_explosion_1, x, y, 0, 400, 800, 1, false, 1);
-
+instance_create(other.x, other.y, obj_explosion);
+    
 </string>
           </argument>
         </arguments>
@@ -199,6 +200,8 @@ audio_play_sound_at(snd_explosion_1, x, y, 0, 400, 800, 1, false, 1);
             <kind>1</kind>
             <string>damage_ship(other, 10000);
 audio_play_sound(snd_explosion_3, 1, false);
+instance_create(other.x, other.y, obj_explosion);
+
 </string>
           </argument>
         </arguments>

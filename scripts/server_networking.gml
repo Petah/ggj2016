@@ -47,9 +47,13 @@ switch (command) {
         
         var ship_count = buffer_read(buffer, buffer_u8);
         for (i = 0; i < ship_count; i++) {
-            var ship_score = buffer_read(buffer, buffer_u16);
-            var ship_name = buffer_read(buffer, buffer_string);
-            log(ship_name + " " + string(ship_score));
+            var ship_id = buffer_read(buffer, buffer_s32);
+            var score_array = ds_list_create();
+            ds_list_add(score_array, buffer_read(buffer, buffer_u16));
+            ds_list_add(score_array, buffer_read(buffer, buffer_string));
+            ds_list_add(score_array, make_colour_rgb(buffer_read(buffer, buffer_u8), buffer_read(buffer, buffer_u8), buffer_read(buffer, buffer_u8)));
+            
+            ds_map_replace(obj_hud.ship_scores, ship_id, score_array);
         }
         
         var view_x = buffer_read(buffer, buffer_f32);
@@ -116,6 +120,7 @@ var ship;
 
 if (global.next_player_id == global.host_player_id) {
     ship = instance_create(spawn_x, spawn_y, obj_player);
+    global.ship_id = ship.id;
     log("Created player " + string(ship));
 } else {
     ship = instance_create(spawn_x, spawn_y, obj_network_player);

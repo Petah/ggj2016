@@ -77,7 +77,6 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\log.gml</script>
-    <script>scripts\draw_console.gml</script>
     <script>scripts\log_init.gml</script>
     <script>scripts\room_init.gml</script>
     <script>scripts\game_init.gml</script>

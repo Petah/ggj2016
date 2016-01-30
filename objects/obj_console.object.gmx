@@ -8,44 +8,60 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="64">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>draw_console</script>
+            <kind>1</kind>
+            <string>console_draw_enabled = false;
+</string>
           </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
           <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
+            <kind>1</kind>
+            <string>if (console_draw_enabled) {
+    draw_set_halign(fa_left);
+    draw_text_colour(0, 20, 'Console:', c_white, c_white, c_white, c_white, 1);
+    for (var i = 0; i &lt; ds_list_size(global.console_log); i++) {
+        draw_text_colour(0, 80 + (i * 20), ds_list_find_value(global.console_log, i), c_white, c_white, c_white, c_white, 1);
+    }
+    
+    draw_set_alpha(0.1);
+    draw_line_colour(view_wview[0] / 2, 0, view_wview[0] / 2, view_hview[0], c_white, c_white);
+    draw_line_colour(0, view_hview[0] / 2, view_wview[0], view_hview[0] / 2, c_white, c_white);
+    draw_set_alpha(1);
+}
+
+</string>
           </argument>
         </arguments>
       </action>
@@ -67,11 +83,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-draw_set_alpha(0.1);
-draw_rectangle_colour(0, 0, room_width, room_height, c_white, c_white, c_white, c_white, true);
-draw_set_alpha(1);
-*/
+            <string>if (console_draw_enabled) {
+    draw_set_alpha(0.1);
+    draw_rectangle_colour(0, 0, room_width, room_height, c_white, c_white, c_white, c_white, true);
+    draw_set_alpha(1);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="123">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>console_draw_enabled = !console_draw_enabled;
 
 </string>
           </argument>

@@ -90,11 +90,9 @@ draw_sprite(spr_bar_blue, 2, mana_bar_x + mana_bar_width + sprite_width, mana_ba
 // draw_set_halign(fa_center);
 // draw_text(view_wview[0] /2, 70, string_sep(ship.ship_score, ",", 3));
 
-// draw_line(view_wview[0] / 2, 0, view_wview[0] / 2, view_hview[0]);
-// draw_line(0, view_hview[0] / 2, view_wview[0], view_hview[0] / 2);
-
 draw_set_halign(fa_right);
 var name_y = 20;
+/*
 with (obj_ship) {
     if (other.ship_id == id) {
         draw_set_colour(make_color_rgb(53, 186, 243));
@@ -103,6 +101,18 @@ with (obj_ship) {
     }
     draw_text(view_wview[0] - 20, name_y, ship_name + " " + string_sep(ship_score, ",", 3));
     name_y += 30;
+}
+*/
+
+
+var ship_id = ds_map_find_first(ship_scores);
+for (var i = 0; i &lt; ds_map_size(ship_scores); i++) {
+    var score_array = ds_map_find_value(ship_scores, ship_id);
+    // log("HUD " + string(ship_id) + " " + string(ds_list_find_value(score_array, 0)) + " " + string(ds_list_find_value(score_array, 1)) + " " + string(ds_list_find_value(score_array, 2)));
+    draw_set_colour(ds_list_find_value(score_array, 2));
+    draw_text(view_wview[0] - 20, name_y, string(global.ship_id) + " " + string(ship_id) + " " + string(ds_list_find_value(score_array, 0)) + " " + string_sep(ds_list_find_value(score_array, 1), ",", 3));
+    name_y += 30;
+    ship_id = ds_map_find_next(ship_scores, ship_id);
 }
 
 </string>
