@@ -73,10 +73,12 @@
       <script>scripts\server_send_command.gml</script>
       <script>scripts\process_command.gml</script>
       <script>scripts\broadcast_buffer.gml</script>
+      <script>scripts\broadcast_particle.gml</script>
       <script>scripts\server_networking.gml</script>
     </scripts>
     <script>scripts\player_init.gml</script>
     <script>scripts\particle_create_wrap.gml</script>
+    <script>scripts\play_sound.gml</script>
   </scripts>
   <fonts name="fonts"/>
   <objects name="objects">

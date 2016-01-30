@@ -7,11 +7,11 @@ with (argument1) {
     switch (argument0) {
         case CMD_ACCELERATE: {
             motion_add(rotation, ship_thrust_forward)
-            if(speed > ship_max_speed)
-            {
+            if(speed > ship_max_speed) {
                 speed = ship_max_speed;
             }
-            particle_create_wrap(x - lengthdir_x(20, rotation), y - lengthdir_y(20, rotation), global.thrust_particle);
+            broadcast_particle(global.thrust_particle, x - lengthdir_x(20, rotation), y - lengthdir_y(20, rotation));
+            // particle_create_wrap(x - lengthdir_x(20, rotation), y - lengthdir_y(20, rotation), global.thrust_particle);
             break;
         }
         case CMD_BREAK: {
@@ -31,21 +31,15 @@ with (argument1) {
         }
         case CMD_FIRE_1: {
             if (loaded) {
-                
-            
-                var bullet = instance_create(x + lengthdir_x(25, rotation - 45), y + lengthdir_y(25, rotation - 45), obj_bullet_1);
+                var bullet = instance_create(x + lengthdir_x(25, rotation - gun_angle), y + lengthdir_y(25, rotation - gun_angle), obj_bullet_1);
                 bullet.speed = speed + bullet.ammo_speed;
                 bullet.direction = rotation;
                 bullet.alarm[0] = bullet.ammo_lifespan;
                 bullet.ship_id = id;
                 
-                var bullet = instance_create(x + lengthdir_x(25, rotation + 45), y + lengthdir_y(25, rotation + 45), obj_bullet_1);
-                bullet.speed = speed + bullet.ammo_speed;
-                bullet.direction = rotation;
-                bullet.alarm[0] = bullet.ammo_lifespan;
-                bullet.ship_id = id;            
+                gun_angle = -gun_angle;
                 
-                audio_play_sound_at(snd_shoot_1, x, y, 0, 100, 300, 1, false, 1);
+                play_sound(snd_shoot_1, x, y);
     
                 loaded = false;
                 alarm[1] = bullet.ammo_reload_speed;

@@ -1,6 +1,8 @@
 var ip;
 var port = 6510;
 
+audio_falloff_set_model(audio_falloff_inverse_distance_clamped);
+
 global.server = noone;
 global.player_id = noone;
 global.player = noone;
