@@ -77,7 +77,8 @@ ammo_is_armed = false;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-particle_burst_wrap(x,y);
+broadcast_particle_burst(global.mine_particle, x, y);
+
 </string>
           </argument>
         </arguments>
@@ -109,7 +110,7 @@ particle_burst_wrap(x,y);
     } else {
         damage_ship(other, ammo_damage);
     }
-    particle_burst_wrap(x,y);
+    broadcast_particle_burst(global.mine_particle, x, y);
     move_contact_solid(direction, speed);
     instance_create(x, y, obj_explosion);
     instance_destroy();

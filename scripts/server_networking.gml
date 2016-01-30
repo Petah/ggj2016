@@ -95,6 +95,14 @@ switch (command) {
         particle_create_wrap(part_x, part_y, part_type);
         break;
     }
+    case CMD_PART_BURST: {
+        log("CMD_PART_BURST");
+        var part_type = buffer_read(buffer, buffer_s32);
+        var part_x = buffer_read(buffer, buffer_f32);
+        var part_y = buffer_read(buffer, buffer_f32);
+        particle_burst_wrap(part_x, part_y, part_type);
+        break;
+    }
     default: {
         log("Client unknown command " + string(command));
         break;
