@@ -1,3 +1,4 @@
+#define sync_frame
 if (global.host) {
     // log("Sending draw frame, " + string(ds_map_size(global.ships)) + " ship(s)");
     
@@ -11,12 +12,20 @@ if (global.host) {
     
     buffer_write(global.server_buffer, buffer_s32, instance_number(obj_network_base));
     
-    with (obj_network_base) {
-        buffer_write(global.server_buffer, buffer_s32, sprite_index);
-        buffer_write(global.server_buffer, buffer_f32, x);
-        buffer_write(global.server_buffer, buffer_f32, y);
-        buffer_write(global.server_buffer, buffer_f32, image_angle);
-        buffer_write(global.server_buffer, buffer_s32, image_index);
+    with (obj_bullet) {
+        write_sprite_buffer();
+    }
+    
+    with (obj_asteroid) {
+        write_sprite_buffer();
+    }
+    
+    with (obj_ship) {
+        write_sprite_buffer();
+    }
+    
+    with (obj_explosion) {
+        write_sprite_buffer();
     }
     
     // Send data
@@ -24,6 +33,7 @@ if (global.host) {
     for (var i = 0; i < ds_map_size(global.ships); i++) {
         // Set camera follow
         var ship = ds_map_find_value(global.ships, socket);
+        var buffer_end = buffer_tell(global.server_buffer);
         
         buffer_seek(global.server_buffer, buffer_seek_start, 4);
         if (ship.dead) {
@@ -34,7 +44,7 @@ if (global.host) {
             buffer_write(global.server_buffer, buffer_f32, ship.y);
         }
         
-        buffer_seek(global.server_buffer, buffer_seek_end, 0);
+        buffer_seek(global.server_buffer, buffer_seek_start, buffer_end);
         
         // log("Buffer length " + string(buffer_tell(global.server_buffer)));
         
@@ -46,4 +56,12 @@ if (global.host) {
     }
     
 }
+
+
+#define write_sprite_buffer
+buffer_write(global.server_buffer, buffer_s32, sprite_index);
+buffer_write(global.server_buffer, buffer_f32, x);
+buffer_write(global.server_buffer, buffer_f32, y);
+buffer_write(global.server_buffer, buffer_f32, image_angle);
+buffer_write(global.server_buffer, buffer_s32, image_index);
 

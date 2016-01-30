@@ -67,8 +67,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var asteroid = instance_create(random_range(0, room_width), random_range(0, room_height), obj_asteroid);
-asteroid.sprite_index = spr_meteor_large_grey;
+            <string>asteroid_create();
 alarm[0] = room_speed * 10;
 
 </string>

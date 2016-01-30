@@ -126,7 +126,7 @@ ammo_reload_speed = room_speed * 0.5;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_collidable">
+    <event eventtype="4" ename="obj_asteroid">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -147,13 +147,38 @@ ammo_reload_speed = room_speed * 0.5;
     with (other) {
         ship_hp -= other.ammo_damage;
         if (ship_hp &lt; 0) {
-            dead = true;
-            x = -1000000;
-            y = -1000000;
-            speed = 0;
-            alarm[0] = room_speed * 5;
+            split_asteroid();
         }
     }
+    move_contact_solid(direction, speed);
+    instance_create(x, y, obj_explosion);
+    instance_destroy();
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_ship">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (ship_id != other.id) {
+    damage_ship(other, ammo_damage);
     move_contact_solid(direction, speed);
     instance_create(x, y, obj_explosion);
     instance_destroy();

@@ -8,6 +8,33 @@
   <parentName>obj_ship</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+
+thrust_sound = audio_play_sound(snd_thrust, 0, true);
+audio_sound_gain(thrust_sound, 0, 0);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -33,6 +60,10 @@ if (!dead) {
 }
 
 audio_listener_position(view_xview[0], view_yview[0], 0);
+
+with (obj_hud) {
+    health_level = other.ship_hp / other.ship_max_hp;
+}
 
 </string>
           </argument>
@@ -85,7 +116,7 @@ audio_listener_position(view_xview[0], view_yview[0], 0);
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -102,8 +133,67 @@ audio_listener_position(view_xview[0], view_yview[0], 0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_health_2, 0, 8, view_hview[0] - 40, 1, 1, 0, c_white, 1);
-draw_sprite_ext(spr_health_2, 1, 8, view_hview[0] - 40, 1, 1, 0, c_white, 1);
+            <string>event_inherited();
+
+with (obj_asteroid) {
+    var angle = point_direction_wrap(other.x, other.y, x, y);
+    draw_sprite_ext(spr_pointer_grey, 0, other.x + lengthdir_x(100, angle), other.y + lengthdir_y(100, angle), 1, 1, angle, c_white, 1);
+}
+
+with (obj_network_player) {
+    if (!dead) {
+        var angle = point_direction_wrap(other.x, other.y, x, y);
+        draw_sprite_ext(spr_pointer_red, 0, other.x + lengthdir_x(100, angle), other.y + lengthdir_y(100, angle), 1, 1, angle, c_white, 1);
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="38">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_sound_gain(thrust_sound, 0.75, 50);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="38">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_sound_gain(thrust_sound, 0, 300);
 
 </string>
           </argument>

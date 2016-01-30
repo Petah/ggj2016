@@ -40,7 +40,7 @@ with (argument1) {
                 
                 gun_angle = -gun_angle;
                 
-                play_sound(snd_shoot_1, x, y);
+                audio_play_sound(snd_shoot_1, 50, false);
     
                 loaded = false;
                 alarm[1] = max(bullet.ammo_reload_speed / ship_reload_modifier, 1);

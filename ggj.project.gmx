@@ -7,6 +7,9 @@
   <sounds name="sound">
     <sound>sound\snd_shoot_1</sound>
     <sound>sound\snd_explosion_1</sound>
+    <sound>sound\snd_thrust</sound>
+    <sound>sound\msc_bg</sound>
+    <sound>sound\snd_explosion_2</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ship_1</sprite>
@@ -15,8 +18,6 @@
     <sprite>sprites\spr_ship_3</sprite>
     <sprite>sprites\spr_asteroid</sprite>
     <sprite>sprites\spr_shield_hit</sprite>
-    <sprite>sprites\spr_health_1</sprite>
-    <sprite>sprites\spr_health_2</sprite>
     <sprite>sprites\spr_ship_4_blue</sprite>
     <sprite>sprites\spr_base_1_green</sprite>
     <sprite>sprites\spr_base_1_blue</sprite>
@@ -49,6 +50,11 @@
     <sprite>sprites\spr_meteor_small_grey</sprite>
     <sprite>sprites\spr_laster_3_green</sprite>
     <sprite>sprites\spr_explosion_1_green</sprite>
+    <sprite>sprites\spr_bar_blue</sprite>
+    <sprite>sprites\spr_bar_red</sprite>
+    <sprite>sprites\spr_bar_grey</sprite>
+    <sprite>sprites\spr_pointer_red</sprite>
+    <sprite>sprites\spr_pointer_grey</sprite>
     <sprite>sprites\spr_powerup_1</sprite>
   </sprites>
   <backgrounds name="background">
@@ -79,7 +85,13 @@
     </scripts>
     <script>scripts\player_init.gml</script>
     <script>scripts\particle_create_wrap.gml</script>
-    <script>scripts\play_sound.gml</script>
+    <script>scripts\asteroid_create.gml</script>
+    <script>scripts\player_hit.gml</script>
+    <script>scripts\damage_ship.gml</script>
+    <script>scripts\split_asteroid.gml</script>
+    <script>scripts\d.gml</script>
+    <script>scripts\point_direction_wrap.gml</script>
+    <script>scripts\get_distance_torus.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="controls">
@@ -100,6 +112,8 @@
     <object>objects\obj_collidable</object>
     <object>objects\obj_asteroid</object>
     <object>objects\obj_explosion</object>
+    <object>objects\obj_spawner</object>
+    <object>objects\obj_hud</object>
     <object>objects\obj_powerup</object>
     <object>objects\obj_powerup_rapid_fire</object>
   </objects>
