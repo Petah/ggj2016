@@ -116,8 +116,10 @@ with (obj_bullet) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_play_sound_at(snd_explosion_4, x, y, 0, 400, 800, 1, false, 1);
-instance_destroy();
+            <string>with (other) {
+    audio_play_sound_at(snd_explosion_4, x, y, 0, 400, 800, 1, false, 1);
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
