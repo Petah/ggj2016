@@ -11,6 +11,9 @@
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_ship_3</sprite>
     <sprite>sprites\spr_asteroid</sprite>
+    <sprite>sprites\spr_shield_hit</sprite>
+    <sprite>sprites\spr_health_1</sprite>
+    <sprite>sprites\spr_health_2</sprite>
     <sprite>sprites\spr_ship_4_blue</sprite>
     <sprite>sprites\spr_base_1_green</sprite>
     <sprite>sprites\spr_base_1_blue</sprite>
