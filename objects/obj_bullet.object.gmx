@@ -29,7 +29,7 @@
 ammo_lifespan = 2 * room_speed;
 ammo_damage = 3;
 ammo_speed = 20;
-ammo_reload_speed = room_speed * 0.2;
+ammo_reload_speed = room_speed * 0.5;
 
 </string>
           </argument>

@@ -43,7 +43,7 @@ with (argument1) {
                 play_sound(snd_shoot_1, x, y);
     
                 loaded = false;
-                alarm[1] = bullet.ammo_reload_speed;
+                alarm[1] = max(bullet.ammo_reload_speed / ship_reload_modifier, 1);
             }
             break;
         }

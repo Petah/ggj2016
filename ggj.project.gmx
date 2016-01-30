@@ -49,6 +49,7 @@
     <sprite>sprites\spr_meteor_small_grey</sprite>
     <sprite>sprites\spr_laster_3_green</sprite>
     <sprite>sprites\spr_explosion_1_green</sprite>
+    <sprite>sprites\spr_powerup_1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
@@ -80,7 +81,6 @@
     <script>scripts\particle_create_wrap.gml</script>
     <script>scripts\play_sound.gml</script>
   </scripts>
-  <fonts name="fonts"/>
   <objects name="objects">
     <objects name="controls">
       <object>objects\obj_console</object>
@@ -100,6 +100,8 @@
     <object>objects\obj_collidable</object>
     <object>objects\obj_asteroid</object>
     <object>objects\obj_explosion</object>
+    <object>objects\obj_powerup</object>
+    <object>objects\obj_powerup_rapid_fire</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
