@@ -41,6 +41,9 @@
     <sprite>sprites\spr_ship_7_blue</sprite>
     <sprite>sprites\spr_ship_7_black</sprite>
     <sprite>sprites\spr_meteor_large_brown</sprite>
+    <sprite>sprites\spr_meteor_small_brown</sprite>
+    <sprite>sprites\spr_meteor_large_grey</sprite>
+    <sprite>sprites\spr_meteor_small_grey</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
