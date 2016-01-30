@@ -64,4 +64,3 @@ buffer_write(global.server_buffer, buffer_f32, x);
 buffer_write(global.server_buffer, buffer_f32, y);
 buffer_write(global.server_buffer, buffer_f32, image_angle);
 buffer_write(global.server_buffer, buffer_s32, image_index);
-
