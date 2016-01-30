@@ -69,6 +69,7 @@
     <sprite>sprites\spr_logo</sprite>
     <sprite>sprites\spr_explosion_2_green</sprite>
     <sprite>sprites\spr_particle_green</sprite>
+    <sprite>sprites\spr_powerup_health_1</sprite>
     <sprite>sprites\spr_count_down</sprite>
   </sprites>
   <backgrounds name="background">
@@ -128,6 +129,7 @@
     <object>objects\obj_explosion</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_hud</object>
+    <object>objects\obj_powerup_health</object>
     <object>objects\obj_powerup</object>
     <object>objects\obj_powerup_rapid_fire</object>
     <object>objects\obj_blackhole</object>

@@ -7,8 +7,8 @@ if (asteroid_split) {
     }
 
     if (object_is_ancestor(other.object_index, obj_bullet)) { 
-        if (random(5) < 1) {
-            instance_create(x, y, obj_powerup_rapid_fire);
+        if (random(1) < 1) {
+            instance_create(x, y, /*choose(obj_powerup_rapid_fire, */obj_powerup_health);
         }
     }
 } else if (object_is_ancestor(other.object_index, obj_bullet)) { 
