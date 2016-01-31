@@ -32,6 +32,8 @@ ship_hp = 100;
 ship_max_hp = 100;
 ship_scores = ds_map_create();
 ship_boost = 100;
+ship_max_boost = 100;
+
 </string>
           </argument>
         </arguments>

@@ -31,7 +31,7 @@ ammo_damage = 3;
 ammo_speed = 20;
 ammo_reload_speed = room_speed * 0.2;
 ammo_is_armed = true;
-
+ammo_explosion = obj_explosion;
 </string>
           </argument>
         </arguments>
@@ -149,13 +149,13 @@ ammo_is_armed = true;
         ship_hp -= other.ammo_damage;
         if (ship_hp &lt; 0) {
             split_asteroid();
-            other.ship_id.ship_score += 9;
+            other.ship_id.ship_score += 90;
         }
     }
     move_contact_solid(direction, speed);
     instance_create(x, y, obj_explosion);
     instance_destroy();
-    ship_id.ship_score += 1;
+    ship_id.ship_score += 10;
 }
 
 </string>
@@ -207,9 +207,9 @@ broadcast_particle_burst(global.mine_particle, x, y);
           <argument>
             <kind>1</kind>
             <string>if (ship_id != other.id &amp;&amp; ammo_is_armed) {
-    ship_id.ship_score += 25;
+    ship_id.ship_score += 1250;
     if (damage_ship(other, ammo_damage)) {
-        ship_id.ship_score += 75;
+        ship_id.ship_score += 1750;
     }
     move_contact_solid(direction, speed);
     instance_create(x, y, obj_explosion);

@@ -13,39 +13,41 @@ if (global.host) {
             buffer_write(global.server_buffer, buffer_s32, CMD_DRAW);
             
             write_score_buffer(ship);
+            
+            var ship_x;
+            var ship_y;
+            if (ship.dead) {
+                ship_x = ship.ship_died_x;
+                ship_y = ship.ship_died_y;
+            } else {
+                ship_x = ship.x;
+                ship_y = ship.y;
+            }
         
             // Camera 
-            if (ship.dead) {
-                buffer_write(global.server_buffer, buffer_f32, room_width / 2);
-                buffer_write(global.server_buffer, buffer_f32, room_height / 2);
+            buffer_write(global.server_buffer, buffer_f32, ship_x);
+            buffer_write(global.server_buffer, buffer_f32, ship_y);
                 
-                // Dont send sprites
-                buffer_write(global.server_buffer, buffer_s32, 0);
-            } else {
-                buffer_write(global.server_buffer, buffer_f32, ship.x);
-                buffer_write(global.server_buffer, buffer_f32, ship.y);
-                
-                var count_position = buffer_tell(global.server_buffer);
-                buffer_write(global.server_buffer, buffer_s32, 0);
-                
-                var count = 0;
-                
-                with (obj_bullet) { count += write_sprite_buffer(ship); }
-                with (obj_asteroid) { count += write_sprite_buffer(ship); }
-                with (obj_coin_1) { count += write_sprite_buffer(ship); }
-                with (obj_powerup) { count += write_sprite_buffer(ship); }
-                with (obj_ship) { count += write_sprite_buffer(ship); }
-                with (obj_blackhole) { count += write_sprite_buffer(ship); }
-                with (obj_explosion) { count += write_sprite_buffer(ship); }
-                
-                var end_position = buffer_tell(global.server_buffer);
-                buffer_seek(global.server_buffer, buffer_seek_start, count_position);
-                buffer_write(global.server_buffer, buffer_s32, count);
-                buffer_seek(global.server_buffer, buffer_seek_start, end_position);
-                
-                buffer_write(global.server_buffer, buffer_f32, ship.ship_hp);
-                buffer_write(global.server_buffer, buffer_f32, ship.ship_max_hp);
-            }
+            var count_position = buffer_tell(global.server_buffer);
+            buffer_write(global.server_buffer, buffer_s32, 0);
+            
+            var count = 0;
+            
+            with (obj_bullet) { count += write_sprite_buffer(ship_x, ship_y); }
+            with (obj_asteroid) { count += write_sprite_buffer(ship_x, ship_y); }
+            with (obj_coin_1) { count += write_sprite_buffer(ship_x, ship_y); }
+            with (obj_powerup) { count += write_sprite_buffer(ship_x, ship_y); }
+            with (obj_ship) { count += write_sprite_buffer(ship_x, ship_y); }
+            with (obj_blackhole) { count += write_sprite_buffer(ship_x, ship_y); }
+            with (obj_explosion) { count += write_sprite_buffer(ship_x, ship_y); }
+            
+            var end_position = buffer_tell(global.server_buffer);
+            buffer_seek(global.server_buffer, buffer_seek_start, count_position);
+            buffer_write(global.server_buffer, buffer_s32, count);
+            buffer_seek(global.server_buffer, buffer_seek_start, end_position);
+            
+            buffer_write(global.server_buffer, buffer_f32, ship.ship_hp);
+            buffer_write(global.server_buffer, buffer_f32, ship.ship_max_hp);
             
             // log("Buffer length " + string(buffer_tell(global.server_buffer)));
             
@@ -61,7 +63,7 @@ if (global.host) {
 
 
 #define write_sprite_buffer
-if (abs(get_distance_torus(argument0.x, argument0.y, x, y, room_width, room_height)) < view_hview[0]) {
+if (abs(get_distance_torus(argument0, argument1, x, y, room_width, room_height)) < view_hview[0]) {
     buffer_write(global.server_buffer, buffer_s32, sprite_index);
     buffer_write(global.server_buffer, buffer_f32, x);
     buffer_write(global.server_buffer, buffer_f32, y);

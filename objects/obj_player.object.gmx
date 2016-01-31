@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-50</depth>
   <persistent>0</persistent>
-  <parentName>obj_ship</parentName>
+  <parentName>obj_human</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -58,8 +58,8 @@ if (!dead) {
     view_xview[0] = x - (view_wview[0] / 2) + lengthdir_x(speed * 5, direction);
     view_yview[0] = y - (view_hview[0] / 2) + lengthdir_y(speed * 5, direction);
 } else {
-    view_xview[0] = -2000000;
-    view_yview[0] = -2000000;
+    // view_xview[0] = -2000000;
+    // view_yview[0] = -2000000;
 }
 
 audio_listener_position(view_xview[0], view_yview[0], 0);
@@ -186,6 +186,13 @@ with (obj_asteroid) {
 }
 
 with (obj_network_player) {
+    if (!dead) {
+        var angle = point_direction_wrap(other.x, other.y, x, y);
+        draw_sprite_ext(spr_pointer_red, 0, other.x + lengthdir_x(100, angle), other.y + lengthdir_y(100, angle), 1, 1, angle, c_white, 1);
+    }
+}
+
+with (obj_bot) {
     if (!dead) {
         var angle = point_direction_wrap(other.x, other.y, x, y);
         draw_sprite_ext(spr_pointer_red, 0, other.x + lengthdir_x(100, angle), other.y + lengthdir_y(100, angle), 1, 1, angle, c_white, 1);

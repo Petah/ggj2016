@@ -28,6 +28,7 @@
             <string>image_speed = 1 / room_speed;
 x = -2000000;
 y = -2000000;
+counting_down = false;
 
 </string>
           </argument>
@@ -51,7 +52,7 @@ y = -2000000;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_play_sound(snd_beep_2, 20, false);
+            <string>counting_down = false;
 
 </string>
           </argument>
@@ -76,7 +77,7 @@ y = -2000000;
           <argument>
             <kind>1</kind>
             <string>audio_play_sound(snd_beep_2, 20, false);
-// alarm[3] = room_speed;
+alarm[3] = room_speed * 0.4;
 
 </string>
           </argument>
@@ -133,6 +134,32 @@ alarm[1] = room_speed;
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (counting_down) {
+    draw_sprite(sprite_index, image_index, view_wview[0] / 2, view_hview[0] / 2);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -150,9 +177,7 @@ alarm[1] = room_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprite_index, image_index, -2000000 + view_wview[0] / 2, -2000000 + view_hview[0] / 2);
-
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

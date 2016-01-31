@@ -7,7 +7,6 @@ with (argument1) {
     switch (argument0) {
         case CMD_ACCELERATE: {
             motion_add(rotation, ship_thrust_forward);
-            log(string(ship_boosting) + " " + string(ship_boost));
             if (ship_boosting && ship_boost > 0) {
                 ship_boost -= 0.2;
                 if(speed > ship_boost_max_speed) {
@@ -26,8 +25,12 @@ with (argument1) {
                         speed = ship_max_speed;
                     }
                 }
+            }        
+            if (object_index == obj_bot) {
+                broadcast_particle(global.bot_thrust_particle, x - lengthdir_x(10, rotation), y - lengthdir_y(10, rotation));
+            } else {
+                broadcast_particle(global.thrust_particle, x - lengthdir_x(20, rotation), y - lengthdir_y(20, rotation));
             }
-            broadcast_particle(global.thrust_particle, x - lengthdir_x(20, rotation), y - lengthdir_y(20, rotation));
             break;
         }
         case CMD_BOOST_ON: {
@@ -85,6 +88,26 @@ with (argument1) {
     
                 loaded_mine = false;
                 alarm[2] = max(mine.ammo_reload_speed / ship_reload_modifier, 1);
+            }
+            break;
+        }
+        case CMD_FIRE_3: {
+            if (loaded) {
+                var bullet = instance_create(x + lengthdir_x(25, rotation - gun_angle), y + lengthdir_y(25, rotation - gun_angle), obj_bullet_1);
+                bullet.sprite_index = spr_bullet_bot;
+                bullet.ammo_damage = 1;
+                bullet.speed = speed + bullet.ammo_speed;
+                bullet.direction = rotation;
+                bullet.image_angle = rotation;
+                bullet.alarm[0] = bullet.ammo_lifespan;
+                bullet.ship_id = id;
+                
+                gun_angle = -gun_angle;
+                
+                audio_play_sound(snd_shoot_1, 50, false);
+    
+                loaded = false;
+                alarm[1] = room_speed * 0.1;
             }
             break;
         }

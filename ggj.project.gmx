@@ -55,6 +55,9 @@
     <sprite>sprites\spr_powerup_health_1</sprite>
     <sprite>sprites\spr_count_down</sprite>
     <sprite>sprites\spr_ship_bits</sprite>
+    <sprite>sprites\spr_bot</sprite>
+    <sprite>sprites\spr_bullet_bot</sprite>
+    <sprite>sprites\spr_bot_explosion</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
@@ -80,6 +83,7 @@
       <script>scripts\broadcast_buffer.gml</script>
       <script>scripts\broadcast_particle.gml</script>
       <script>scripts\broadcast_particle_burst.gml</script>
+      <script>scripts\send_count_down.gml</script>
       <script>scripts\server_networking.gml</script>
     </scripts>
     <script>scripts\player_init.gml</script>
@@ -92,6 +96,9 @@
     <script>scripts\string_sep.gml</script>
     <script>scripts\get_name.gml</script>
     <script>scripts\particle_burst_wrap.gml</script>
+    <script>scripts\move_outside_bounds.gml</script>
+    <script>scripts\count_down_start.gml</script>
+    <script>scripts\spawn_bot.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader0.shader</shader>
@@ -108,8 +115,10 @@
       <object>objects\obj_button_join</object>
     </objects>
     <object>objects\obj_ship</object>
+    <object>objects\obj_human</object>
     <object>objects\obj_player</object>
     <object>objects\obj_network_player</object>
+    <object>objects\obj_bot</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_bullet_1</object>
     <object>objects\obj_collidable</object>

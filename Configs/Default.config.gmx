@@ -308,7 +308,7 @@
     <option_use_new_audio>True</option_use_new_audio>
     <option_variableerrors>False</option_variableerrors>
     <option_version>100</option_version>
-    <option_version_build>127</option_version_build>
+    <option_version_build>143</option_version_build>
     <option_version_company></option_version_company>
     <option_version_copyright></option_version_copyright>
     <option_version_description></option_version_description>
@@ -459,7 +459,9 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="15">
+    <constants number="17">
+      <constant name="CMD_FIRE_3">17</constant>
+      <constant name="CMD_COUNT_DOWN">16</constant>
       <constant name="CMD_BOOST_OFF">15</constant>
       <constant name="CMD_BOOST_ON">14</constant>
       <constant name="CMD_ACCELERATE">1</constant>

@@ -63,7 +63,7 @@ switch (command) {
         view_yview[0] = view_y - (view_hview[0] / 2);
         
         var sprite_count = buffer_read(buffer, buffer_s32);
-        // log("Draw frame " + string(sprite_count) + " sprites " + string(view_x) + "," + string(view_y));
+        log("Draw frame " + string(sprite_count) + " sprites " + string(view_x) + "," + string(view_y));
         var i;
         for (i = 0; i < sprite_count; i++) {
             var data_array = ds_list_create();
@@ -78,7 +78,7 @@ switch (command) {
         
         obj_hud.ship_hp = buffer_read(buffer, buffer_f32);
         obj_hud.ship_max_hp = buffer_read(buffer, buffer_f32);
-        log("HP " + string(obj_hud.ship_hp) + "/" + string(obj_hud.ship_max_hp));
+        // log("HP " + string(obj_hud.ship_hp) + "/" + string(obj_hud.ship_max_hp));
         
         // Remove old sprites
         /*
@@ -96,11 +96,14 @@ switch (command) {
         break;
     }
     case CMD_PART_BURST: {
-        log("CMD_PART_BURST");
         var part_type = buffer_read(buffer, buffer_s32);
         var part_x = buffer_read(buffer, buffer_f32);
         var part_y = buffer_read(buffer, buffer_f32);
         particle_burst_wrap(part_x, part_y, part_type);
+        break;
+    }
+    case CMD_COUNT_DOWN: {
+        count_down_start();
         break;
     }
     default: {
@@ -127,6 +130,10 @@ var spawn_y = random_range(0, room_height);
 var ship;
 
 if (global.next_player_id == global.host_player_id) {
+    spawn_bot();
+    spawn_bot();
+    spawn_bot();
+    spawn_bot();
     ship = instance_create(spawn_x, spawn_y, obj_player);
     global.ship_id = ship.id;
     log("Created player " + string(ship));

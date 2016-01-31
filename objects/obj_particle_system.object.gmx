@@ -40,6 +40,14 @@ part_type_life(global.thrust_particle, room_speed * 1, room_speed * 1);
 part_type_shape(global.thrust_particle, pt_shape_disk);
 part_type_size(global.thrust_particle, 0.15, 0.15, 0.0001, 0);
 
+global.bot_thrust_particle = part_type_create();
+part_type_alpha2(global.bot_thrust_particle, 1, 0);
+part_type_colour_hsv(global.bot_thrust_particle, 0, 0, 0, 0, 80, 80);
+part_type_life(global.bot_thrust_particle, room_speed * 1, room_speed * 1);
+part_type_shape(global.bot_thrust_particle, pt_shape_disk);
+part_type_size(global.bot_thrust_particle, 0.12, 0.12, 0.0001, 0);
+
+
 global.mine_particle = part_type_create();
 part_type_sprite(global.mine_particle, spr_particle_green, false, false, false);
 part_type_life(global.mine_particle, room_speed * 0.25, room_speed * 0.55);

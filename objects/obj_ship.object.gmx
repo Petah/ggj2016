@@ -229,7 +229,7 @@ ds_map_replace(obj_hud.ship_scores, id, score_array);
           <argument>
             <kind>1</kind>
             <string>if (other.can_pickup) {
-    ship_score += other.coin_value;
+    ship_score += other.coin_value * 10;
     
     with (other) {
         instance_destroy();
@@ -260,8 +260,7 @@ ds_map_replace(obj_hud.ship_scores, id, score_array);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>damage_ship(other.id, 1000);
-damage_ship(self.id, 1000);
+            <string>damage_ship(self.id, 1000);
 
 </string>
           </argument>
