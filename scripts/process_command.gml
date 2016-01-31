@@ -16,6 +16,9 @@ with (argument1) {
             } else {
                 if (!ship_boosting) {
                     ship_boost += 0.04;
+                    if (ship_boost > ship_max_boost) {
+                        ship_boost = ship_max_boost;
+                    }
                 }
                 if(speed > ship_max_speed) {
                     speed -= (ship_thrust_forward * 1.5);
