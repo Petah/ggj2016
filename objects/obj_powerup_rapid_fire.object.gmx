@@ -53,6 +53,9 @@ reload_modifier = 1;
             <string>other.ship_reload_modifier += reload_modifier;
 other.alarm[11] = powerup_lifetime;
 instance_destroy();
+
+audio_play_sound(snd_power_up, 40, false);
+
 </string>
           </argument>
         </arguments>

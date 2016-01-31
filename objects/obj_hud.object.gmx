@@ -122,10 +122,6 @@ for (var i = 0; i &lt; ds_map_size(ship_scores); i++) {
     ship_id = ds_map_find_next(ship_scores, ship_id);
 }
 
-//draw_set_halign(fa_center);
-//draw_text(view_wview[0] /2, 70, "you killed herp");
-
-
 </string>
           </argument>
         </arguments>
