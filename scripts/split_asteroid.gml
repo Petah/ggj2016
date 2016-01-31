@@ -7,7 +7,7 @@ if (asteroid_split) {
     }
 
     if (object_is_ancestor(other.object_index, obj_bullet)) { 
-        if (random(7) < 1) {
+        if (random(4) < 1) {
             instance_create(x, y, choose(obj_powerup_rapid_fire, obj_powerup_health));
         }
     }
@@ -18,3 +18,6 @@ if (asteroid_split) {
 }
 instance_destroy();
 
+if (instance_number(obj_asteroid) < 20) {
+    asteroid_create()
+}

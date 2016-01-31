@@ -60,6 +60,10 @@ with (obj_ship) {
     g_yco = -sin(g_dir * pi / 180) * g_mag;
     hspeed += g_xco * 2;
     vspeed += g_yco * 2;
+    if(speed &gt; 4 * ship_max_speed)
+    {
+        speed = 4 * ship_max_speed;
+    }
 }
 
 with (obj_asteroid) {
