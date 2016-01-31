@@ -30,10 +30,15 @@
 ship_score = 0;
 rotation = 0;
 
-ship_max_speed = (60 / room_speed) * 10;
+ship_base_max_speed = (60 / room_speed) * 10;
+ship_max_speed = ship_base_max_speed;
 ship_thrust_forward = (60 / room_speed) * 0.6;
 ship_thrust_reverse = (60 / room_speed) * 0.5;
-ship_turn_speed = (60 / room_speed) * 5;
+ship_turn_speed = (60 / room_speed) * 4;
+ship_boost = 10;
+ship_max_boost = 10;
+ship_boost_max_speed = (60 / room_speed) * 20;
+ship_boosting = false;
 
 ship_reload_modifier = 1;
 
@@ -46,6 +51,7 @@ gun_angle = 45;
 
 ship_name = "New ship";
 
+sprite_index = choose(spr_ship_6_red, spr_ship_5_blue, spr_ship_4_green, spr_ship_7_orange);
 </string>
           </argument>
         </arguments>
@@ -232,6 +238,31 @@ ds_map_replace(obj_hud.ship_scores, id, score_array);
     audio_play_sound_at(snd_pickup_1, x, y, 0, 400, 800, 1, false, 1);
 }
     
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_ship">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>damage_ship(other.id, 1000);
+damage_ship(self.id, 1000);
+
 </string>
           </argument>
         </arguments>

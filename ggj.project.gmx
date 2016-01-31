@@ -15,6 +15,7 @@
     <sound>sound\snd_pickup_1</sound>
     <sound>sound\snd_beep_1</sound>
     <sound>sound\snd_beep_2</sound>
+    <sound>sound\snd_power_up</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_mine_green</sprite>
@@ -53,6 +54,7 @@
     <sprite>sprites\spr_particle_green</sprite>
     <sprite>sprites\spr_powerup_health_1</sprite>
     <sprite>sprites\spr_count_down</sprite>
+    <sprite>sprites\spr_ship_bits</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_space_1</background>
@@ -91,6 +93,9 @@
     <script>scripts\get_name.gml</script>
     <script>scripts\particle_burst_wrap.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shader0.shader</shader>
+  </shaders>
   <objects name="objects">
     <objects name="controls">
       <object>objects\obj_console</object>

@@ -30,16 +30,6 @@
 thrust_sound = audio_play_sound(snd_thrust, 0, true);
 audio_sound_gain(thrust_sound, 0, 0);
 
-switch (choose(0, 1)) {
-    case 0: {
-        break;
-    }
-    case 1: {
-        break;
-    }
-}
-
-// sprite_index = choose(spr_ship_1, spr_ship_2, spr_ship_3);
 </string>
           </argument>
         </arguments>
@@ -65,8 +55,8 @@ switch (choose(0, 1)) {
             <string>event_inherited();
 
 if (!dead) {
-    view_xview[0] = x - (view_wview[0] / 2);
-    view_yview[0] = y - (view_hview[0] / 2);
+    view_xview[0] = x - (view_wview[0] / 2) + lengthdir_x(speed * 5, direction);
+    view_yview[0] = y - (view_hview[0] / 2) + lengthdir_y(speed * 5, direction);
 } else {
     view_xview[0] = -2000000;
     view_yview[0] = -2000000;
@@ -77,6 +67,8 @@ audio_listener_position(view_xview[0], view_yview[0], 0);
 obj_hud.ship_id = id;
 obj_hud.ship_hp = ship_hp;
 obj_hud.ship_max_hp = ship_max_hp;
+obj_hud.ship_boost = ship_boost;
+obj_hud.ship_max_boost = ship_max_boost;
 
 </string>
           </argument>
@@ -123,6 +115,14 @@ obj_hud.ship_max_hp = ship_max_hp;
     
     if (keyboard_check_pressed(vk_control)) {
         process_command(CMD_FIRE_2, self.id);
+    }
+    
+    if (keyboard_check_pressed(vk_shift)) {
+        process_command(CMD_BOOST_ON, self.id);
+    }
+    
+    if (keyboard_check_released(vk_shift)) {
+        process_command(CMD_BOOST_OFF, self.id);
     }
     // log("SD " + string(rotation) + " " + string(speed) + " " + string(direction) + " " + string(x) + "," + string(y));
 }
@@ -216,6 +216,29 @@ with (obj_network_player) {
             <kind>1</kind>
             <string>audio_sound_gain(thrust_sound, 0.75, 50);
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="81">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>broadcast_particle_burst(global.mine_ship_bits, x, y);
 </string>
           </argument>
         </arguments>

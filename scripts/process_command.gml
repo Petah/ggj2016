@@ -6,13 +6,34 @@
 with (argument1) {
     switch (argument0) {
         case CMD_ACCELERATE: {
-            motion_add(rotation, ship_thrust_forward)
-            if(speed > ship_max_speed) {
-                speed = ship_max_speed;
+            motion_add(rotation, ship_thrust_forward);
+            log(string(ship_boosting) + " " + string(ship_boost));
+            if (ship_boosting && ship_boost > 0) {
+                ship_boost -= 0.2;
+                if(speed > ship_boost_max_speed) {
+                    speed = ship_boost_max_speed;
+                }
+            } else {
+                if (!ship_boosting) {
+                    ship_boost += 0.04;
+                }
+                if(speed > ship_max_speed) {
+                    speed -= (ship_thrust_forward * 1.5);
+                    if (speed < ship_max_speed) {
+                        speed = ship_max_speed;
+                    }
+                }
             }
             broadcast_particle(global.thrust_particle, x - lengthdir_x(20, rotation), y - lengthdir_y(20, rotation));
-            // particle_create_wrap(x - lengthdir_x(20, rotation), y - lengthdir_y(20, rotation), global.thrust_particle);
             break;
+        }
+        case CMD_BOOST_ON: {
+            ship_boosting = true;
+            break
+        }
+        case CMD_BOOST_OFF: {
+            ship_boosting = false;
+            break
         }
         case CMD_BREAK: {
             speed -= ship_thrust_reverse;

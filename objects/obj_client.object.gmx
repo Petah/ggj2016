@@ -49,6 +49,14 @@ if (keyboard_check_pressed(vk_control)) {
     send_command(CMD_FIRE_2);
 }
 
+if (keyboard_check_pressed(vk_shift)) {
+    send_command(CMD_BOOST_ON);
+}
+
+if (keyboard_check_released(vk_shift)) {
+    send_command(CMD_BOOST_OFF);
+}
+
 </string>
           </argument>
         </arguments>

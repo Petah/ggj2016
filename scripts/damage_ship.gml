@@ -2,6 +2,7 @@ with (argument0) {
     ship_hp -= argument1;
     if (ship_hp < 0) {
         dead = true;
+        broadcast_particle_burst(global.mine_ship_bits, x, y);
         obj_count_down.image_index = 0;
         obj_count_down.alarm[0] = room_speed;
         ship_score -= 50;

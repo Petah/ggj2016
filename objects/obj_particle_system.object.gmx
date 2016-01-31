@@ -46,6 +46,13 @@ part_type_life(global.mine_particle, room_speed * 0.25, room_speed * 0.55);
 part_type_speed(global.mine_particle, 2, 5, -0.175, 0);
 part_type_direction(global.mine_particle, 0, 360, 0, 0);
 
+global.mine_ship_bits = part_type_create();
+part_type_sprite(global.mine_ship_bits, spr_ship_bits, false, false, true);
+part_type_life(global.mine_ship_bits, room_speed * 0.40, room_speed * 0.8);
+part_type_speed(global.mine_ship_bits, 2, 5, 0, 0);
+part_type_direction(global.mine_ship_bits, 0, 360, 0, 0);
+part_type_orientation(global.mine_ship_bits, 0, 360, 10, 0, true);
+
 </string>
           </argument>
         </arguments>
